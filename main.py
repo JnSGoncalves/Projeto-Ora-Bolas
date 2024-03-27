@@ -1,15 +1,13 @@
-import tkinter as tk
+from tkinter import *
 
-def clique_botao():
-    print("Botão clicado!")
+class Aplicacao:
+    def __init__(self, master=None):
+        self.menu = Frame(master)
+        self.menu.pack()
+        self.msg = Label(self.menu, text = "Menu")
+        self.msg.pack()
+        pass
 
-print("Hello World!")
-
-janela = tk.Tk()
-janela.title("Minha Primeira Janela")
-
-
-botao = tk.Button(janela, text="Clique Aqui", command=clique_botao)
-botao.pack()
-
-janela.mainloop()
+root = Tk()
+Aplicacao(root)
+root.mainloop()
