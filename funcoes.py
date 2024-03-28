@@ -21,13 +21,13 @@ def posicao_da_bola_em_x(t=0):
     x = round(0.005 * t**3 -0.000000000000007* t**2 + 0.5*t + 1, 8)
     return x
 
-def posicao_da_bola_em_y(t):
-    y = -0.02 * t**2 + 0.9 * t + 0.5
+def posicao_da_bola_em_y(t=0):
+    y = round(-0.02 * t**2 + 0.9 * t + 0.5, 6)
     return y
 
 def return_pontos_exatos_da_funcao(funcao, lista_desejada):
     tempo = 0
-    for _ in range(6):
+    for _ in range(1001):
         resultado = funcao(tempo) 
         lista_desejada.append(resultado)
         tempo += 0.02
