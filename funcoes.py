@@ -15,8 +15,12 @@ Função da velocidade
 
 '''
 
+import matplotlib.pyplot as plt
+import numpy as np
+import matplotlib as mpl
 
 
+#Funções da bola
 def posicao_da_bola_em_x(t=0):
     x = round(0.005 * t**3 -0.000000000000007* t**2 + 0.5*t + 1, 8)
     return x
@@ -25,11 +29,34 @@ def posicao_da_bola_em_y(t=0):
     y = round(-0.02 * t**2 + 0.9 * t + 0.5, 6)
     return y
 
+#Funções do robô
+def posicao_robo_x(So=0,Vo=2.8, t=0):
+    x = So + Vo*t + (2.8 * t**2/2)
+    return x
+
+def posicao_robo_y(So=0, Vo=2.8, t=0):
+    y = So + Vo*t + (2.8 * t**2/2)
+    return y
+
+
+#função para armazenar todos os pontos desejados em uma lista.
 def return_pontos_exatos_da_funcao(funcao, lista_desejada):
     tempo = 0
     for _ in range(1001):
         resultado = funcao(tempo) 
         lista_desejada.append(resultado)
         tempo += 0.02
+
+#Exibe o gráfico da bola.
+def grafico_trajetoria_da_bola(lista_x, lista_y):
+    fig, ax = plt.subplots()  
+    ax.plot(lista_x, lista_y, color='yellow', linestyle='-', linewidth=2) 
+    ax.set_xlabel('X(m)')
+    ax.set_ylabel('Y(m)')
+    ax.set_title('Gráfico da Trajetória da Bola')
+    ax.set_xlim(0, 52)  
+    ax.set_ylim(0, 11) 
+    ax.set_facecolor('green')
+    plt.show()
 
 
