@@ -6,6 +6,9 @@ class Aplicacao:
         self.menu.pack()
         self.msg = Label(self.menu, text = "Menu")
         self.msg.pack()
+        self.incio = Button(self.menu)
+        
+    
         pass
 
 root = Tk()
