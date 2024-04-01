@@ -114,5 +114,6 @@ class Aplicacao:
 
 root = Tk()
 root.title("Projeto Ora Bolas!")
+root.iconbitmap('.\imagens\icon.ico')
 Aplicacao(root)
 root.mainloop()
