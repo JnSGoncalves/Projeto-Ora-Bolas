@@ -1,4 +1,8 @@
 from tkinter import *
+# import tkinter as tk
+
+posX = None
+posY = None
 
 class Aplicacao:
     def __init__(self, master=None):
@@ -87,6 +91,9 @@ class Aplicacao:
         pass
     
     def colectPos(self):
+        global posX
+        global posY
+        
         posX = self.posX.get()
         try:
             posX = float(posX)
@@ -102,8 +109,10 @@ class Aplicacao:
             return
         
         print("X = ", posX, " Y = ", posY)
-        
+
+
 
 root = Tk()
+root.title("Projeto Ora Bolas!")
 Aplicacao(root)
 root.mainloop()
