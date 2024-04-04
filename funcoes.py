@@ -20,6 +20,10 @@ import numpy as np
 import matplotlib as mpl
 
 
+x_do_robo = float(input("Digite a posição do robô no eixo X: "))
+y_do_robo = float(input("Digite a posição do robô no eixo Y: "))
+
+
 #Funções da bola
 def posicao_da_bola_em_x(t=0):
     x = round(0.005 * t**3 -0.000000000000007* t**2 + 0.5*t + 1, 8)
@@ -29,15 +33,18 @@ def posicao_da_bola_em_y(t=0):
     y = round(-0.02 * t**2 + 0.9 * t + 0.5, 6)
     return y
 
+
 #Funções do robô
-def posicao_robo_x(So=0,Vo=2.8, t=0):
-    x = So + Vo*t + (2.8 * t**2/2)
+def posicao_robo_x(t=0):
+    x = round(x_do_robo + 0.005*t + (0.05 * t**2/2),8)
     return x
 
-def posicao_robo_y(So=0, Vo=2.8, t=0):
-    y = So + Vo*t + (2.8 * t**2/2)
+def posicao_robo_y(t=0):
+    y = round(y_do_robo + 0.005*t + (0.05 * t**2/2), 6)
     return y
 
+def tempo():
+    ...
 
 #função para armazenar todos os pontos desejados em uma lista.
 def return_pontos_exatos_da_funcao(funcao, lista_desejada):
