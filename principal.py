@@ -31,16 +31,6 @@ funcoes.return_pontos_exatos_da_funcao(funcoes.posicao_robo_x,pontos_em_x_da_pos
 funcoes.return_pontos_exatos_da_funcao(funcoes.posicao_robo_y, pontos_em_y_da_posicao_robo)
 
 
-#pontos de encontro da posição do robô e da bola.
-conjunto_x_bola = set(pontos_em_x_da_posicao_bola)
-conjunto_x_robo = set(pontos_em_x_da_posicao_robo)
-conjunto_y_bola = set(pontos_em_y_da_posicao_bola)
-conjunto_y_robo = set(pontos_em_y_da_posicao_robo)
-interceccao_conjuntos_x_posicao = conjunto_x_robo & conjunto_x_bola
-interseccao_conjuntos_y_posicao = conjunto_y_bola & conjunto_y_robo
-
-
-
 
 # Exibe o gráfico da trajetória da bola e do robô
 fig, ax = plt.subplots()  
