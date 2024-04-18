@@ -14,6 +14,8 @@ pontos_em_y_da_posicao_bola = []
 #pontos do robô
 pontos_em_x_da_posicao_robo = []
 pontos_em_y_da_posicao_robo = []
+interceptacoes_x = []
+interceptacoes_y = []
 #pontos_em_x_da_velocidade_robo = []
 #pontos_em_y_da_velocidade_robo = []
 #pontos_em_x_da_aceleracao_robo = []
@@ -30,12 +32,15 @@ funcoes.return_pontos_exatos_da_funcao(funcoes.posicao_da_bola_em_y, pontos_em_y
 funcoes.return_pontos_exatos_da_funcao(funcoes.posicao_robo_x,pontos_em_x_da_posicao_robo)
 funcoes.return_pontos_exatos_da_funcao(funcoes.posicao_robo_y, pontos_em_y_da_posicao_robo)
 
+#função do raio de interceptação
+funcoes.raio_de_interceptação(pontos_em_x_da_posicao_robo, pontos_em_x_da_posicao_bola, 
+pontos_em_y_da_posicao_robo,pontos_em_y_da_posicao_bola, interceptacoes_x, interceptacoes_y)
 
 
 # Exibe o gráfico da trajetória da bola e do robô
 fig, ax = plt.subplots()  
 ax.plot(pontos_em_x_da_posicao_bola, pontos_em_y_da_posicao_bola, color='yellow', linestyle='-', linewidth=2) 
-ax.plot(pontos_em_x_da_posicao_robo, pontos_em_y_da_posicao_robo, color="blue",linestyle='-', linewidth=2)
+ax.plot(interceptacoes_x, interceptacoes_y, color="blue",linestyle='-', linewidth=2)
 ax.set_xlabel('X(m)')
 ax.set_ylabel('Y(m)')
 ax.set_title('Gráfico da Trajetória da Bola')
