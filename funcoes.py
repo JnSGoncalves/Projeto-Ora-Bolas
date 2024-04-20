@@ -37,11 +37,11 @@ def posicao_da_bola_em_y(t=0):
 
 #Funções do robô
 def posicao_robo_x(t=0):
-    x = round(x_do_robo + 0.1*t + (0.1 * t**2/2),8)
+    x = round(x_do_robo + 0.16*t + (0.16 * t**2/2),8)
     return x
 
 def posicao_robo_y(t=0):
-    y = round(y_do_robo + 0.1*t + (0.1 * t**2/2), 6)
+    y = round(y_do_robo + 0.16*t + (0.16 * t**2/2), 6)
     return y
 
 
@@ -77,6 +77,9 @@ def raio_de_interceptação(x_robo, x_bola, y_robo, y_bola, lista_x, lista_y):
             if distancia <= 0.1115:
                 return True
             else:
-                lista_x.append(x_robo[i])
-                lista_y.append(y_robo[i])
+                if x_robo[i] in lista_x or y_robo[i] in lista_y:
+                    pass
+                else:
+                    lista_x.append(x_robo[i])
+                    lista_y.append(y_robo[i])
 
