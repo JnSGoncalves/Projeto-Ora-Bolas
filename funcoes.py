@@ -83,3 +83,11 @@ def raio_de_interceptação(x_robo, x_bola, y_robo, y_bola, lista_x, lista_y):
                     lista_x.append(x_robo[i])
                     lista_y.append(y_robo[i])
 
+#função que lê o tempo de encontro entre o robo e a bola
+def tempo_robo(interceptacao_x):
+    tempo = 0
+    for i in  range(len(interceptacao_x)):
+        tempo += 0.02
+    tempo = round(tempo, 2)
+    return tempo
+    
