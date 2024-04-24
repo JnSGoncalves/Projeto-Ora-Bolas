@@ -54,6 +54,12 @@ def return_pontos_exatos_da_funcao(funcao, lista_desejada):
         lista_desejada.append(resultado)
         tempo += 0.02
 
+def return_tempo_em_intervalos(lista, tempo):
+    tempo_intervalo = 0
+    while tempo_intervalo <= tempo:
+        lista.append(tempo_intervalo)
+        tempo_intervalo += 0.02
+
 #Exibe o gráfico da bola.
 def grafico_trajetoria_da_bola(lista_x, lista_y):
     fig, ax = plt.subplots()  
@@ -84,10 +90,8 @@ def raio_de_interceptação(x_robo, x_bola, y_robo, y_bola, lista_x, lista_y):
                     lista_y.append(y_robo[i])
 
 #função que lê o tempo de encontro entre o robo e a bola
-def tempo_robo(interceptacao_x):
-    tempo = 0
-    for i in  range(len(interceptacao_x)):
-        tempo += 0.02
-    tempo = round(tempo, 2)
-    return tempo
+def tempo_robo(interceptacoes_x):
+    # O tempo é igual ao número de pontos de interceptação multiplicado pelo intervalo de tempo (0.02)
+    tempo = len(interceptacoes_x) * 0.02
+    return round(tempo, 2)
     
