@@ -3,13 +3,11 @@ import numpy as np
 import matplotlib as mpl
 import funcoes
 
-lista_tempo_interceptacao = []
+lista_tempo = []
 
 #pontos_da_bola
 pontos_em_x_da_posicao_bola = []
-pontos_em_x_da_posicao_bola_com_intervalo = []
 pontos_em_y_da_posicao_bola = []
-pontos_em_y_da_posicao_bola_com_intervalo = []
 #pontos_em_x_da_velocidade_bola = []
 #pontos_em_y_da_velocidade_bola = []
 #pontos_em_x_da_aceleracao_bola = []
@@ -43,6 +41,9 @@ pontos_em_y_da_posicao_robo,pontos_em_y_da_posicao_bola, interceptacoes_x, inter
 #variável que pega o tempo em que o robô e a bola se encontram.
 tempo_interceptacao = funcoes.tempo_robo(interceptacoes_x)
 
+#Adicionando os intervalos de tempo a lista_tempo
+funcoes.return_tempo(lista_tempo)
+
 
 
 
@@ -59,14 +60,17 @@ while True:
           8 --> Gráfico da distância entre o robô e a bola.
           0 --> Sair.''')
     opcao = int(input("Opção: "))
+
     print()
     if opcao == 1:
         # Gráfico de interceptação entre o robô e a bola
         fig, ax = plt.subplots()  
         # Plotagem dos dados com diferentes cores
         plt.plot(interceptacoes_x, interceptacoes_y,color='blue', label='Robô', )
-        plt.plot(pontos_em_x_da_posicao_bola, pontos_em_y_da_posicao_bola,color='yellow', label='Bola', )
-        plt.scatter(interceptacoes_x[-1],interceptacoes_y[-1], color='green', label='Ponto de Encontro', s=20)
+        plt.plot(pontos_em_x_da_posicao_bola, pontos_em_y_da_posicao_bola,
+                 color='yellow', label='Bola', )
+        plt.scatter(interceptacoes_x[-1],interceptacoes_y[-1], 
+                    color='green', label='Ponto de Encontro', s=20)
         # Adicionando legenda
         plt.legend()
         # Definindo a cor do texto da legenda
@@ -80,13 +84,14 @@ while True:
         plt.show()
 
     elif opcao == 2:
-        funcoes.return_tempo_em_intervalos(lista_tempo_interceptacao,tempo_interceptacao)
         # Gráfico da trajetória do robô e da bola em função do tempo
         fig, ax = plt.subplots()  
         # Plotagem dos dados com diferentes cores
-        plt.plot(lista_tempo_interceptacao, pontos_em_x_da_posicao_robo[:len(lista_tempo_interceptacao)], 
+        plt.plot(lista_tempo[0:len(interceptacoes_x)], 
+                 pontos_em_x_da_posicao_robo[0:len(interceptacoes_x)], 
                 color='blue', label='Robô')
-        plt.plot(lista_tempo_interceptacao, pontos_em_x_da_posicao_bola[:len(lista_tempo_interceptacao)], 
+        plt.plot(lista_tempo[0:len(interceptacoes_x)],
+                  pontos_em_x_da_posicao_bola[0:len(interceptacoes_x)], 
                 color='yellow', label='Bola')
         # Adicionando legenda
         plt.legend()
@@ -100,13 +105,14 @@ while True:
         plt.show()
 
     elif opcao == 3:
-        funcoes.return_tempo_em_intervalos(lista_tempo_interceptacao,tempo_interceptacao)
         # Gráfico da trajetória do robô e da bola em função do tempo
         fig, ax = plt.subplots()  
         # Plotagem dos dados com diferentes cores
-        plt.plot(lista_tempo_interceptacao, pontos_em_y_da_posicao_robo[:len(lista_tempo_interceptacao)], 
+        plt.plot(lista_tempo[0:len(interceptacoes_y)], 
+                 pontos_em_y_da_posicao_robo[0:len(interceptacoes_y)], 
                 color='blue', label='Robô')
-        plt.plot(lista_tempo_interceptacao, pontos_em_y_da_posicao_bola[:len(lista_tempo_interceptacao)], 
+        plt.plot(lista_tempo[0:len(interceptacoes_y)], 
+                 pontos_em_y_da_posicao_bola[0:len(interceptacoes_y)], 
                 color='yellow', label='Bola')
         # Adicionando legenda
         plt.legend()
@@ -119,7 +125,19 @@ while True:
         ax.set_title('Trajetória do Robô e da Bola no eixo Y em Função do Tempo')
         plt.show()
 
-    if opcao == 0:
+    elif opcao == 4:
+        ...
+
+    elif opcao == 5:
+        ...
+    elif opcao == 6:
+        ...
+    elif opcao == 7:
+        ...
+    elif opcao == 8:
+        ...
+
+    elif opcao == 0:
         print()
         print("Saindo...")
         break

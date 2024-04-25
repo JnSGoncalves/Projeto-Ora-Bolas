@@ -54,11 +54,15 @@ def return_pontos_exatos_da_funcao(funcao, lista_desejada):
         lista_desejada.append(resultado)
         tempo += 0.02
 
-def return_tempo_em_intervalos(lista, tempo):
-    tempo_intervalo = 0
-    while tempo_intervalo <= tempo:
-        lista.append(tempo_intervalo)
-        tempo_intervalo += 0.02
+#Função que retorna o tempo inteiro do trajeto
+def return_tempo(lista):
+    tempo = 0
+    for _ in range(343):
+        if tempo in lista:
+            pass
+        else:
+            lista.append(tempo)
+            tempo += 0.02
 
 #Exibe o gráfico da bola.
 def grafico_trajetoria_da_bola(lista_x, lista_y):
