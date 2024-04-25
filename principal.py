@@ -8,8 +8,8 @@ lista_tempo = []
 #pontos_da_bola
 pontos_em_x_da_posicao_bola = []
 pontos_em_y_da_posicao_bola = []
-#pontos_em_x_da_velocidade_bola = []
-#pontos_em_y_da_velocidade_bola = []
+pontos_em_x_da_velocidade_bola = []
+pontos_em_y_da_velocidade_bola = []
 #pontos_em_x_da_aceleracao_bola = []
 #pontos_em_y_da_aceleracao_bola = []
 
@@ -18,8 +18,8 @@ pontos_em_x_da_posicao_robo = []
 pontos_em_y_da_posicao_robo = []
 interceptacoes_x = []
 interceptacoes_y = []
-#pontos_em_x_da_velocidade_robo = []
-#pontos_em_y_da_velocidade_robo = []
+pontos_em_x_da_velocidade_robo = []
+pontos_em_y_da_velocidade_robo = []
 #pontos_em_x_da_aceleracao_robo = []
 #pontos_em_y_da_aceleracao_robo = []
 
@@ -43,6 +43,15 @@ tempo_interceptacao = funcoes.tempo_robo(interceptacoes_x)
 
 #Adicionando os intervalos de tempo a lista_tempo
 funcoes.return_tempo(lista_tempo)
+
+
+
+#GRÁFICO PARA VELOCIDADE DO ROBÔ EM X E Y
+funcoes.return_pontos_exatos_da_funcao(funcoes.velocidade_bola_x, pontos_em_x_da_velocidade_bola)
+funcoes.return_pontos_exatos_da_funcao(funcoes.velocidade_bola_y, pontos_em_y_da_velocidade_bola)
+print(pontos_em_x_da_velocidade_bola[0:10])
+print(pontos_em_y_da_velocidade_bola[0:10])
+input()
 
 
 

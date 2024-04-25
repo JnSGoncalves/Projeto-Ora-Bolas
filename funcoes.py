@@ -7,13 +7,15 @@ função da posição
 
 Função da velocidade
 --> Vx(t) = 0,015t² -0,0003t + 0,5
---> Vy(t) = -0,04 + 0,9004
+--> Vy(t) = -0,04.t + 0,9004
 
  Função da aceleração
  --> Ax(t) = 0,03t - 0,0006t
  --> Ay(t) = -0,04
 
 '''
+
+
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -33,6 +35,14 @@ def posicao_da_bola_em_x(t=0):
 def posicao_da_bola_em_y(t=0):
     y = round(-0.02 * t**2 + 0.9 * t + 0.5, 6)
     return y
+
+def velocidade_bola_x(t=0):
+    vx = round((0.015*t**2) - 0.0003*t + 0.5 , 6)
+    return vx
+
+def velocidade_bola_y(t=0):
+    vy = round(-0.04*t + 0.9004 , 6) 
+    return vy
 
 
 #Funções do robô
