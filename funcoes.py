@@ -37,11 +37,11 @@ def posicao_da_bola_em_y(t=0):
 
 #Funções do robô
 def posicao_robo_x(t=0):
-    x = round(x_do_robo + 0.09*t + (0.09 * t**2/2),8)
+    x = round(x_do_robo + 1.2*t + (1.2 * t**2/2), 8)
     return x
 
 def posicao_robo_y(t=0):
-    y = round(y_do_robo + 0.09*t + (0.09 * t**2/2), 6)
+    y = round(y_do_robo + 1.2*t + (1.2 * t**2/2), 6)
     return y
 
 
@@ -53,6 +53,16 @@ def return_pontos_exatos_da_funcao(funcao, lista_desejada):
         resultado = funcao(tempo) 
         lista_desejada.append(resultado)
         tempo += 0.02
+
+#Função que retorna o tempo inteiro do trajeto
+def return_tempo(lista):
+    tempo = 0
+    for _ in range(343):
+        if tempo in lista:
+            pass
+        else:
+            lista.append(tempo)
+            tempo += 0.02
 
 #Exibe o gráfico da bola.
 def grafico_trajetoria_da_bola(lista_x, lista_y):
@@ -69,33 +79,23 @@ def grafico_trajetoria_da_bola(lista_x, lista_y):
 
 
 
-#funções abaixo em teste ainda...
-def calculo_raio_de_interceptação_return_x(x_robo, x_bola, y_robo, y_bola):
-    indice = 0
-    distancia = sqrt((x_robo[indice] - x_bola[indice])**2 + (y_robo[indice] - y_bola[indice])**2)
+#função que armazena os pontos de interceptações.
+def raio_de_interceptação(x_robo, x_bola, y_robo, y_bola, lista_x, lista_y):
+    for i in range(len(x_robo)):
+        for j in range(len(x_bola)):
+            distancia = sqrt((x_robo[i] - x_bola[j])**2 + (y_robo[i] - y_bola[j])**2)
+            if distancia <= 0.1115:
+                return True
+            else:
+                if x_robo[i] in lista_x or y_robo[i] in lista_y:
+                    pass
+                else:
+                    lista_x.append(x_robo[i])
+                    lista_y.append(y_robo[i])
 
-    pontos_interceptacao_x = [x_robo[0]]
-    pontos_interceptacao_y = [y_robo[0]]
-
-    while distancia > 0.1115:
-        indice += 1
-        distancia = sqrt((x_robo[indice] - x_bola[indice])**2 + (y_robo[indice] - y_bola[indice])**2)
-        pontos_interceptacao_x.append(x_robo[indice])
-        pontos_interceptacao_y.append(y_robo[indice])
-
-    return pontos_interceptacao_x
-
-def calculo_raio_de_interceptação_return_y(x_robo, x_bola, y_robo, y_bola):
-    indice = 0
-    distancia = sqrt((x_robo[indice] - x_bola[indice])**2 + (y_robo[indice] - y_bola[indice])**2)
-
-    pontos_interceptacao_x = [x_robo[0]]
-    pontos_interceptacao_y = [y_robo[0]]
-
-    while distancia > 0.1115:
-        indice += 1
-        distancia = sqrt((x_robo[indice] - x_bola[indice])**2 + (y_robo[indice] - y_bola[indice])**2)
-        pontos_interceptacao_x.append(x_robo[indice])
-        pontos_interceptacao_y.append(y_robo[indice])
-
-    return pontos_interceptacao_y
+#função que lê o tempo de encontro entre o robo e a bola
+def tempo_robo(interceptacoes_x):
+    # O tempo é igual ao número de pontos de interceptação multiplicado pelo intervalo de tempo (0.02)
+    tempo = len(interceptacoes_x) * 0.02
+    return round(tempo, 2)
+    
