@@ -37,11 +37,11 @@ def posicao_da_bola_em_y(t=0):
 
 #Funções do robô
 def posicao_robo_x(t=0):
-    x = round(x_do_robo + 0.16*t + (0.16 * t**2/2),8)
+    x = round(x_do_robo + 1.2*t + (1.2 * t**2/2), 8)
     return x
 
 def posicao_robo_y(t=0):
-    y = round(y_do_robo + 0.16*t + (0.16 * t**2/2), 6)
+    y = round(y_do_robo + 1.2*t + (1.2 * t**2/2), 6)
     return y
 
 
