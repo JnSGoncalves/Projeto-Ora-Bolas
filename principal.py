@@ -77,7 +77,7 @@ while True:
         plt.legend().get_texts()[0].set_color("blue")  # Robô em azul
         plt.legend().get_texts()[1].set_color("yellow")  # Bola em amarelo
         plt.legend().get_texts()[2].set_color("green")
-        plt.text(0.8, 4.5, f'Tempo: {tempo_interceptacao}', fontsize=12, color='green')
+        plt.text(0.001, 4.2, f'Tempo: {tempo_interceptacao} s', fontsize=12, color='black')
         ax.set_xlabel('X(m)')
         ax.set_ylabel('Y(m)')
         ax.set_title('Gráfico da interceptação entre o robô e a bola')
