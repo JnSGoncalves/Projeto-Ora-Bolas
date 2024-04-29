@@ -46,12 +46,22 @@ funcoes.return_tempo(lista_tempo)
 
 
 
-#GRÁFICO PARA VELOCIDADE DO ROBÔ EM X E Y
-funcoes.return_pontos_exatos_da_funcao(funcoes.velocidade_bola_x, pontos_em_x_da_velocidade_bola)
-funcoes.return_pontos_exatos_da_funcao(funcoes.velocidade_bola_y, pontos_em_y_da_velocidade_bola)
-print(pontos_em_x_da_velocidade_bola[0:10])
-print(pontos_em_y_da_velocidade_bola[0:10])
-input()
+#GRÁFICO PARA VELOCIDADE DO ROBÔ E BOLA EM X E Y
+
+#Armazenando os pontos da velocidade da bola em X e Y.
+funcoes.return_pontos_exatos_da_funcao(funcoes.velocidade_bola_x, 
+pontos_em_x_da_velocidade_bola)
+funcoes.return_pontos_exatos_da_funcao(funcoes.velocidade_bola_y,
+pontos_em_y_da_velocidade_bola)
+
+#Armazenando os pontos da velocidade do robô em X e Y.
+funcoes.return_pontos_exatos_da_funcao(funcoes.Velocidade_robo_x, 
+pontos_em_x_da_velocidade_robo)
+funcoes.return_pontos_exatos_da_funcao(funcoes.velocidade_robo_y,
+pontos_em_y_da_velocidade_robo)
+
+
+
 
 
 
