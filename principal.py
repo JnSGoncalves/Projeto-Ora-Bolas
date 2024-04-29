@@ -66,6 +66,7 @@ pontos_em_y_da_velocidade_robo)
 
 
 
+
 while True:
     print("Digite o gráfico que deseja ver: ")
     print('''
@@ -145,10 +146,48 @@ while True:
         plt.show()
 
     elif opcao == 4:
-        ...
+        # Gráfico da trajetória do robô e da bola em função do tempo
+        fig, ax = plt.subplots()  
+        # Plotagem dos dados com diferentes cores
+        plt.plot(lista_tempo[0:len(interceptacoes_y)], 
+                 pontos_em_x_da_velocidade_robo[0:len(interceptacoes_y)], 
+                color='blue', label='Robô')
+        plt.plot(lista_tempo[0:len(interceptacoes_y)], 
+                 pontos_em_x_da_velocidade_bola[0:len(interceptacoes_y)], 
+                color='yellow', label='Bola')
+        # Adicionando legenda
+        plt.legend()
+        # Definindo a cor do texto da legenda
+        plt.legend().get_texts()[0].set_color("blue")  # Robô em azul
+        plt.legend().get_texts()[1].set_color("yellow")  # Bola em amarelo
+        # Adicionando texto com o tempo de interceptação
+        ax.set_xlabel('Tempo (s)')
+        ax.set_ylabel('Velocidade X(m)')
+        ax.set_title('Velocidade do robô e bola em função do tempo')
+        plt.show()
+        
 
     elif opcao == 5:
-        ...
+        # Gráfico da trajetória do robô e da bola em função do tempo
+        fig, ax = plt.subplots()  
+        # Plotagem dos dados com diferentes cores
+        plt.plot(lista_tempo[0:len(interceptacoes_y)], 
+                 pontos_em_y_da_velocidade_robo[0:len(interceptacoes_y)], 
+                color='blue', label='Robô')
+        plt.plot(lista_tempo[0:len(interceptacoes_y)], 
+                 pontos_em_y_da_velocidade_bola[0:len(interceptacoes_y)], 
+                color='yellow', label='Bola')
+        # Adicionando legenda
+        plt.legend()
+        # Definindo a cor do texto da legenda
+        plt.legend().get_texts()[0].set_color("blue")  # Robô em azul
+        plt.legend().get_texts()[1].set_color("yellow")  # Bola em amarelo
+        # Adicionando texto com o tempo de interceptação
+        ax.set_xlabel('Tempo (s)')
+        ax.set_ylabel('Velocidade Y(m)')
+        ax.set_title('Velocidade do robô e bola em  função do tempo')
+        plt.show()
+
     elif opcao == 6:
         ...
     elif opcao == 7:
