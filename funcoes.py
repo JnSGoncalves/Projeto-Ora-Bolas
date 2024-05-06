@@ -47,19 +47,23 @@ def velocidade_bola_y(t=0):
 
 #Funções do robô
 def posicao_robo_x(t=0):
-    x = round(x_do_robo + 2.8*t + (2.8 * t**2/2), 8)
+    x = round(x_do_robo + 0*t + (2.8 * t**2)/2, 8)
     return x
 
 def posicao_robo_y(t=0):
-    y = round(y_do_robo + 2.8*t + (2.8 * t**2/2), 6)
+    y = round(y_do_robo + 0*t + (2.8 * t**2)/2, 6)
     return y
 
 def Velocidade_robo_x(t=0):
-    vx = round(2.8 + (2.8 * t) , 6)
+    vx = round(0 + (2.8 * t) , 6)
+    if vx > 2.8:
+        vx = 2.8
     return vx
 
 def velocidade_robo_y(t = 0):
-    vy = round(2.8 + (2.8 * t) , 6)
+    vy = round(0 + (2.8 * t) , 6)
+    if vy > 2.8:
+        vy = 2.8
     return vy
 
 
