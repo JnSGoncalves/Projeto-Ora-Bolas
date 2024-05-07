@@ -44,8 +44,6 @@ tempo_interceptacao = funcoes.tempo_robo(interceptacoes_x)
 #Adicionando os intervalos de tempo a lista_tempo
 funcoes.return_tempo(lista_tempo)
 
-
-
 #GRÁFICO PARA VELOCIDADE DO ROBÔ E BOLA EM X E Y
 
 #Armazenando os pontos da velocidade da bola em X e Y.

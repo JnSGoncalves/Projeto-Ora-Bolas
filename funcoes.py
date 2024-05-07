@@ -69,17 +69,15 @@ def aceleracao_bola_y(t=0):
 
 #Funções do robô
 def posicao_robo_x(t=0, aceleracao=aceleracao_robo_x):
-    # Verificando se o robô está à frente da bola após um determinado tempo e invertendo a aceleração
-    if x_do_robo > X_inicial_bola or t > 1.23:
+    if x_do_robo > X_inicial_bola:
         aceleracao = aceleracao_robo_x * (-1)
-    elif y_do_robo < Y_inicial_bola and  x_do_robo < X_inicial_bola:
-        aceleracao = aceleracao_robo_x
+    if y_do_robo < Y_inicial_bola and  x_do_robo < X_inicial_bola:
+        aceleracao = 2.8
     x = round(x_do_robo + 0*t + (aceleracao * t**2)/2, 8)
     return x
 
 def posicao_robo_y(t=0, aceleracao = aceleracao_robo_y):
-    if y_do_robo > Y_inicial_bola and x_do_robo < X_inicial_bola:
-        aceleracao = aceleracao_robo_y * (-1)
+    
     y = round(y_do_robo + 0*t + (aceleracao * t**2)/2, 6)
     return y
 
