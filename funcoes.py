@@ -22,9 +22,20 @@ import numpy as np
 import matplotlib as mpl
 from math import sqrt;
 
-
+aceleracao_robo_x = 2.8
+aceleracao_robo_y = 2.8
+X_inicial_bola = 1
+Y_inicial_bola = 0.5
 x_do_robo = float(input("Digite a posição do robô no eixo X: "))
 y_do_robo = float(input("Digite a posição do robô no eixo Y: "))
+
+#if x_do_robo > X_inicial_bola:
+ #   aceleracao_robo_x = aceleracao_robo_x * (-1)
+
+#elif x_do_robo < X_inicial_bola and y_do_robo > Y_inicial_bola:
+ #   aceleracao_robo_y = aceleracao_robo_x * (-1)
+
+
 
 
 #Funções da bola
@@ -46,12 +57,21 @@ def velocidade_bola_y(t=0):
 
 
 #Funções do robô
-def posicao_robo_x(t=0):
-    x = round(x_do_robo + 0*t + (2.8 * t**2)/2, 8)
+def posicao_robo_x(t=0, aceleracao=aceleracao_robo_x):
+    # Verificando se o robô está à frente da bola após um determinado tempo e invertendo a aceleração
+    if x_do_robo > X_inicial_bola or t > 1.23:
+        aceleracao = aceleracao_robo_x * (-1)
+    elif y_do_robo < Y_inicial_bola and  x_do_robo < X_inicial_bola:
+        aceleracao = aceleracao_robo_y
+    x = round(x_do_robo + 0*t + (aceleracao * t**2)/2, 8)
     return x
 
-def posicao_robo_y(t=0):
-    y = round(y_do_robo + 0*t + (2.8 * t**2)/2, 6)
+def posicao_robo_y(t=0, aceleracao = aceleracao_robo_y):
+    if y_do_robo > Y_inicial_bola or t > 1.23:
+        aceleracao = aceleracao_robo_y * (-1)
+    elif y_do_robo < Y_inicial_bola and  x_do_robo < X_inicial_bola:
+        aceleracao = aceleracao_robo_y
+    y = round(y_do_robo + 0*t + (aceleracao * t**2)/2, 6)
     return y
 
 def Velocidade_robo_x(t=0):
