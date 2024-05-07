@@ -10,10 +10,12 @@ Função da velocidade
 --> Vy(t) = -0,04.t + 0,9004
 
  Função da aceleração
- --> Ax(t) = 0,03t - 0,0006t
+ --> Ax(t) = 0,03t - 0,0006
  --> Ay(t) = -0,04
 
 '''
+
+
 
 
 
@@ -54,6 +56,14 @@ def velocidade_bola_x(t=0):
 def velocidade_bola_y(t=0):
     vy = round(-0.04*t + 0.9004 , 6) 
     return vy
+
+def aceleracao_bola_x(t=0):
+    Ax = 0.03*t - 0.0006
+    return Ax
+
+def aceleracao_bola_y(t=0):
+    Ay = -0.04
+    return Ay
 
 
 #Funções do robô

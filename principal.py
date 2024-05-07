@@ -10,8 +10,8 @@ pontos_em_x_da_posicao_bola = []
 pontos_em_y_da_posicao_bola = []
 pontos_em_x_da_velocidade_bola = []
 pontos_em_y_da_velocidade_bola = []
-#pontos_em_x_da_aceleracao_bola = []
-#pontos_em_y_da_aceleracao_bola = []
+pontos_em_x_da_aceleracao_bola = []
+pontos_em_y_da_aceleracao_bola = []
 
 #pontos do robô
 pontos_em_x_da_posicao_robo = []
@@ -61,6 +61,14 @@ funcoes.return_pontos_exatos_da_funcao(funcoes.velocidade_robo_y,
 pontos_em_y_da_velocidade_robo)
 
 
+#GRÁFICO PARA ACELERAÇÃO DO ROBÔ E BOLA EM X E Y
+funcoes.return_pontos_exatos_da_funcao(funcoes.aceleracao_bola_x,
+pontos_em_x_da_aceleracao_bola)
+funcoes.return_pontos_exatos_da_funcao(funcoes.aceleracao_bola_y,
+pontos_em_y_da_aceleracao_bola)
+print(pontos_em_x_da_aceleracao_bola[0:10])
+print(pontos_em_y_da_aceleracao_bola[0:10])
+input()
 
 
 
