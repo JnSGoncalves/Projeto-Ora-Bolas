@@ -20,8 +20,8 @@ interceptacoes_x = []
 interceptacoes_y = []
 pontos_em_x_da_velocidade_robo = []
 pontos_em_y_da_velocidade_robo = []
-#pontos_em_x_da_aceleracao_robo = []
-#pontos_em_y_da_aceleracao_robo = []
+pontos_em_x_da_aceleracao_robo = []
+pontos_em_y_da_aceleracao_robo = []
 
 
 # GRÁFICO DE INTERCEPTAÇÃO DO ROBÔ EM X E Y.
@@ -62,13 +62,21 @@ pontos_em_y_da_velocidade_robo)
 
 
 #GRÁFICO PARA ACELERAÇÃO DO ROBÔ E BOLA EM X E Y
+#armazenandos os pontos da aceleração da bola.
 funcoes.return_pontos_exatos_da_funcao(funcoes.aceleracao_bola_x,
 pontos_em_x_da_aceleracao_bola)
 funcoes.return_pontos_exatos_da_funcao(funcoes.aceleracao_bola_y,
 pontos_em_y_da_aceleracao_bola)
-print(pontos_em_x_da_aceleracao_bola[0:10])
-print(pontos_em_y_da_aceleracao_bola[0:10])
-input()
+
+#armazenando os pontos da aceleração do robô:
+funcoes.return_pontos_exatos_da_funcao(funcoes.aceleracao_robo,
+pontos_em_x_da_aceleracao_robo)
+funcoes.return_pontos_exatos_da_funcao(funcoes.aceleracao_robo,
+pontos_em_y_da_aceleracao_robo)
+
+
+
+
 
 
 
@@ -171,7 +179,7 @@ while True:
         # Adicionando texto com o tempo de interceptação
         ax.set_xlabel('Tempo (s)')
         ax.set_ylabel('Velocidade X(m)')
-        ax.set_title('Velocidade do robô e bola em função do tempo')
+        ax.set_title('Velocidade do robô e bola em função do tempo no eixo X')
         plt.show()
         
 
@@ -193,13 +201,52 @@ while True:
         # Adicionando texto com o tempo de interceptação
         ax.set_xlabel('Tempo (s)')
         ax.set_ylabel('Velocidade Y(m)')
-        ax.set_title('Velocidade do robô e bola em  função do tempo')
+        ax.set_title('Velocidade do robô e bola em  função do tempo no eixo Y')
         plt.show()
 
     elif opcao == 6:
-        ...
+        # Gráfico da trajetória do robô e da bola em função do tempo
+        fig, ax = plt.subplots()  
+        # Plotagem dos dados com diferentes cores
+        plt.plot(lista_tempo[0:len(interceptacoes_y)], 
+                 pontos_em_x_da_aceleracao_robo[0:len(interceptacoes_y)], 
+                color='blue', label='Robô')
+        plt.plot(lista_tempo[0:len(interceptacoes_y)], 
+                 pontos_em_x_da_aceleracao_bola[0:len(interceptacoes_y)], 
+                color='yellow', label='Bola')
+        # Adicionando legenda
+        plt.legend()
+        # Definindo a cor do texto da legenda
+        plt.legend().get_texts()[0].set_color("blue")  # Robô em azul
+        plt.legend().get_texts()[1].set_color("yellow")  # Bola em amarelo
+        # Adicionando texto com o tempo de interceptação
+        ax.set_xlabel('Tempo (s)')
+        ax.set_ylabel('Aceleração X(m)')
+        ax.set_title('Aceleração do robô e bola em  função do tempo no eixo X')
+        plt.show()
+
     elif opcao == 7:
-        ...
+        # Gráfico da trajetória do robô e da bola em função do tempo
+        fig, ax = plt.subplots()  
+        # Plotagem dos dados com diferentes cores
+        plt.plot(lista_tempo[0:len(interceptacoes_y)], 
+                 pontos_em_y_da_aceleracao_robo[0:len(interceptacoes_y)], 
+                color='blue', label='Robô')
+        plt.plot(lista_tempo[0:len(interceptacoes_y)], 
+                 pontos_em_y_da_aceleracao_bola[0:len(interceptacoes_y)], 
+                color='yellow', label='Bola')
+        # Adicionando legenda
+        plt.legend()
+        # Definindo a cor do texto da legenda
+        plt.legend().get_texts()[0].set_color("blue")  # Robô em azul
+        plt.legend().get_texts()[1].set_color("yellow")  # Bola em amarelo
+        # Adicionando texto com o tempo de interceptação
+        ax.set_xlabel('Tempo (s)')
+        ax.set_ylabel('Aceleração Y(m)')
+        ax.set_title('Aceleração do robô e bola em  função do tempo no eixo Y')
+        plt.show()
+
+
     elif opcao == 8:
         ...
 

@@ -31,6 +31,7 @@ Y_inicial_bola = 0.5
 x_do_robo = float(input("Digite a posição do robô no eixo X: "))
 y_do_robo = float(input("Digite a posição do robô no eixo Y: "))
 
+
 #if x_do_robo > X_inicial_bola:
  #   aceleracao_robo_x = aceleracao_robo_x * (-1)
 
@@ -72,15 +73,13 @@ def posicao_robo_x(t=0, aceleracao=aceleracao_robo_x):
     if x_do_robo > X_inicial_bola or t > 1.23:
         aceleracao = aceleracao_robo_x * (-1)
     elif y_do_robo < Y_inicial_bola and  x_do_robo < X_inicial_bola:
-        aceleracao = aceleracao_robo_y
+        aceleracao = aceleracao_robo_x
     x = round(x_do_robo + 0*t + (aceleracao * t**2)/2, 8)
     return x
 
 def posicao_robo_y(t=0, aceleracao = aceleracao_robo_y):
-    if y_do_robo > Y_inicial_bola or t > 1.23:
+    if y_do_robo > Y_inicial_bola and x_do_robo < X_inicial_bola:
         aceleracao = aceleracao_robo_y * (-1)
-    elif y_do_robo < Y_inicial_bola and  x_do_robo < X_inicial_bola:
-        aceleracao = aceleracao_robo_y
     y = round(y_do_robo + 0*t + (aceleracao * t**2)/2, 6)
     return y
 
@@ -95,6 +94,10 @@ def velocidade_robo_y(t = 0):
     if vy > 2.8:
         vy = 2.8
     return vy
+
+def aceleracao_robo(t=0):
+    Ar = 2.8
+    return Ar
 
 
 
