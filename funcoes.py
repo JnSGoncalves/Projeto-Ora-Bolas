@@ -21,9 +21,15 @@ import matplotlib as mpl
 from math import sqrt;
 
 
-x_do_robo = float(input("Digite a posição do robô no eixo X: "))
-y_do_robo = float(input("Digite a posição do robô no eixo Y: "))
+x_do_robo = None
+y_do_robo = None
 
+def armazen_xy_robo(x, y):
+    global x_do_robo
+    global y_do_robo
+    
+    x_do_robo = x
+    y_do_robo = y
 
 #Funções da bola
 def posicao_da_bola_em_x(t=0):

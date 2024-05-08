@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Users\jnsil\OneDrive - FEI\Ciclo 2\Projetos\Física Clássica\Ora Bolas\Projeto-Ora-Bolas\venv
+set VIRTUAL_ENV=C:\Users\jnsil\Documents\Projetos\Projeto-Ora-Bolas\venv
 
 if not defined PROMPT set PROMPT=$P$G
 
