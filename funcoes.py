@@ -7,19 +7,28 @@ função da posição
 
 Função da velocidade
 --> Vx(t) = 0,015t² -0,0003t + 0,5
---> Vy(t) = -0,04 + 0,9004
+--> Vy(t) = -0,04.t + 0,9004
 
  Função da aceleração
- --> Ax(t) = 0,03t - 0,0006t
+ --> Ax(t) = 0,03t - 0,0006
  --> Ay(t) = -0,04
 
 '''
+
+
+
+
 
 import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib as mpl
 from math import sqrt;
 
+
+aceleracao_robo_x = 2.8
+aceleracao_robo_y = 2.8
+X_inicial_bola = 1
+Y_inicial_bola = 0.5
 
 x_do_robo = None
 y_do_robo = None
@@ -31,6 +40,15 @@ def armazen_xy_robo(x, y):
     x_do_robo = x
     y_do_robo = y
 
+#if x_do_robo > X_inicial_bola:
+ #   aceleracao_robo_x = aceleracao_robo_x * (-1)
+
+#elif x_do_robo < X_inicial_bola and y_do_robo > Y_inicial_bola:
+ #   aceleracao_robo_y = aceleracao_robo_x * (-1)
+
+
+
+
 #Funções da bola
 def posicao_da_bola_em_x(t=0):
     x = round(0.005 * t**3 -0.000000000000007* t**2 + 0.5*t + 1, 8)
@@ -40,15 +58,52 @@ def posicao_da_bola_em_y(t=0):
     y = round(-0.02 * t**2 + 0.9 * t + 0.5, 6)
     return y
 
+def velocidade_bola_x(t=0):
+    vx = round((0.015*t**2) - 0.0003*t + 0.5 , 6)
+    return vx
+
+def velocidade_bola_y(t=0):
+    vy = round(-0.04*t + 0.9004 , 6) 
+    return vy
+
+def aceleracao_bola_x(t=0):
+    Ax = 0.03*t - 0.0006
+    return Ax
+
+def aceleracao_bola_y(t=0):
+    Ay = -0.04
+    return Ay
+
 
 #Funções do robô
-def posicao_robo_x(t=0):
-    x = round(x_do_robo + 1.2*t + (1.2 * t**2/2), 8)
+def posicao_robo_x(t=0, aceleracao=aceleracao_robo_x):
+    if x_do_robo > X_inicial_bola:
+        aceleracao = aceleracao_robo_x * (-1)
+    if y_do_robo < Y_inicial_bola and  x_do_robo < X_inicial_bola:
+        aceleracao = 2.8
+    x = round(x_do_robo + 0*t + (aceleracao * t**2)/2, 8)
     return x
 
-def posicao_robo_y(t=0):
-    y = round(y_do_robo + 1.2*t + (1.2 * t**2/2), 6)
+def posicao_robo_y(t=0, aceleracao = aceleracao_robo_y):
+    
+    y = round(y_do_robo + 0*t + (aceleracao * t**2)/2, 6)
     return y
+
+def Velocidade_robo_x(t=0):
+    vx = round(0 + (2.8 * t) , 6)
+    if vx > 2.8:
+        vx = 2.8
+    return vx
+
+def velocidade_robo_y(t = 0):
+    vy = round(0 + (2.8 * t) , 6)
+    if vy > 2.8:
+        vy = 2.8
+    return vy
+
+def aceleracao_robo(t=0):
+    Ar = 2.8
+    return Ar
 
 
 
