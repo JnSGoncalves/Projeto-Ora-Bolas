@@ -31,7 +31,7 @@ Y_inicial_bola = 0.5
 x_do_robo = float(input("Digite a posição do robô no eixo X: "))
 y_do_robo = float(input("Digite a posição do robô no eixo Y: "))
 
-if x_do_robo < X_inicial_bola and y_do_robo > x_do_robo and y_do_robo> X_inicial_bola:
+if x_do_robo < X_inicial_bola and y_do_robo > x_do_robo and y_do_robo > X_inicial_bola:
     aceleracao_robo_y = aceleracao_robo_y * (-1)
 
 
@@ -74,8 +74,11 @@ def posicao_robo_x(t=0, aceleracao=aceleracao_robo_x):
     return x
 
 def posicao_robo_y(t=0, aceleracao = aceleracao_robo_y):
-    
     y = round(y_do_robo + 0*t + (aceleracao * t**2)/2, 6)
+    return y
+
+def posicao_robo_y_negativa(t=0):
+    y = round(y_do_robo + 0*t + (-2.8 * t**2)/2, 6)
     return y
 
 def Velocidade_robo_x(t=0):
@@ -201,6 +204,26 @@ def grafico_trajetoria_Y(interceptacoes_y, pontos_em_y_da_posicao_bola, lista_te
                 color='blue', label='Robô')
         plt.plot(lista_tempo[0:len(interceptacoes_y)], 
                  pontos_em_y_da_posicao_bola[0:len(interceptacoes_y)], 
+                color='yellow', label='Bola')
+        # Adicionando legenda
+        plt.legend()
+        # Definindo a cor do texto da legenda
+        plt.legend().get_texts()[0].set_color("blue")  # Robô em azul
+        plt.legend().get_texts()[1].set_color("yellow")  # Bola em amarelo
+        ax.set_xlabel('Tempo (s)')
+        ax.set_ylabel('Posição Y (m)')
+        ax.set_title('Trajetória do Robô e da Bola no eixo Y em Função do Tempo')
+        plt.show()
+
+def grafico_trajetoria_Y_negativo(interceptacoes_y_negativo, pontos_em_y_da_posicao_bola, lista_tempo):
+    # Gráfico da trajetória do robô em Y e da bola em função do tempo
+        fig, ax = plt.subplots()  
+        # Plotagem dos dados com diferentes cores
+        plt.plot(lista_tempo[0:len(interceptacoes_y_negativo)], 
+                 interceptacoes_y_negativo, 
+                color='blue', label='Robô')
+        plt.plot(lista_tempo[0:len(interceptacoes_y_negativo)], 
+                 pontos_em_y_da_posicao_bola[0:len(interceptacoes_y_negativo)], 
                 color='yellow', label='Bola')
         # Adicionando legenda
         plt.legend()

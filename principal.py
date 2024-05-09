@@ -16,8 +16,13 @@ pontos_em_y_da_aceleracao_bola = []
 #pontos do robô
 pontos_em_x_da_posicao_robo = []
 pontos_em_y_da_posicao_robo = []
+pontos_em_y_da_posicao_robo_negativos = []
 interceptacoes_x = []
 interceptacoes_y = []
+#separando
+interceptacoes_x_do_y_negativo = []
+interceptacoes_y_negativo = []
+# -----
 pontos_em_x_da_velocidade_robo = []
 pontos_em_y_da_velocidade_robo = []
 pontos_em_x_da_aceleracao_robo = []
@@ -33,10 +38,16 @@ funcoes.return_pontos_exatos_da_funcao(funcoes.posicao_da_bola_em_y, pontos_em_y
 #função que armazena os pontos do robo em x e y.
 funcoes.return_pontos_exatos_da_funcao(funcoes.posicao_robo_x,pontos_em_x_da_posicao_robo)
 funcoes.return_pontos_exatos_da_funcao(funcoes.posicao_robo_y, pontos_em_y_da_posicao_robo)
+funcoes.return_pontos_exatos_da_funcao(funcoes.posicao_robo_y_negativa, pontos_em_y_da_posicao_robo_negativos)
 
-#função do raio de interceptação
+#função do raio de interceptação com y positivo
 funcoes.raio_de_interceptação(pontos_em_x_da_posicao_robo, pontos_em_x_da_posicao_bola, 
-pontos_em_y_da_posicao_robo,pontos_em_y_da_posicao_bola, interceptacoes_x, interceptacoes_y)
+pontos_em_y_da_posicao_robo, pontos_em_y_da_posicao_bola, interceptacoes_x, interceptacoes_y)
+
+#função com raio de interceptação com y negativo
+funcoes.raio_de_interceptação(pontos_em_x_da_posicao_robo, pontos_em_x_da_posicao_bola, 
+pontos_em_y_da_posicao_robo_negativos, pontos_em_y_da_posicao_bola, interceptacoes_x_do_y_negativo, 
+interceptacoes_y_negativo)
 
 #variável que pega o tempo em que o robô e a bola se encontram.
 tempo_interceptacao = funcoes.tempo_robo(interceptacoes_x)
@@ -99,7 +110,12 @@ while True:
         
 
     elif opcao == 3:
-        funcoes.grafico_trajetoria_Y(interceptacoes_y, pontos_em_y_da_posicao_bola,
+        if funcoes.y_do_robo > funcoes.Y_inicial_bola + 0.1:
+            funcoes.grafico_trajetoria_Y_negativo(interceptacoes_y_negativo, pontos_em_y_da_posicao_bola,
+                             lista_tempo)
+
+        else:
+            funcoes.grafico_trajetoria_Y(interceptacoes_y, pontos_em_y_da_posicao_bola,
                              lista_tempo)
         
 
