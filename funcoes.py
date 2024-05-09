@@ -31,6 +31,9 @@ Y_inicial_bola = 0.5
 x_do_robo = float(input("Digite a posição do robô no eixo X: "))
 y_do_robo = float(input("Digite a posição do robô no eixo Y: "))
 
+if x_do_robo < X_inicial_bola and y_do_robo > x_do_robo and y_do_robo> X_inicial_bola:
+    aceleracao_robo_y = aceleracao_robo_y * (-1)
+
 
 
 
