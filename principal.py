@@ -27,6 +27,8 @@ pontos_em_x_da_velocidade_robo = []
 pontos_em_y_da_velocidade_robo = []
 pontos_em_x_da_aceleracao_robo = []
 pontos_em_y_da_aceleracao_robo = []
+distancia = []
+distancia_y_negativo = []
 
 
 # GRÁFICO DE INTERCEPTAÇÃO DO ROBÔ EM X E Y.
@@ -42,12 +44,13 @@ funcoes.return_pontos_exatos_da_funcao(funcoes.posicao_robo_y_negativa, pontos_e
 
 #função do raio de interceptação com y positivo
 funcoes.raio_de_interceptação(pontos_em_x_da_posicao_robo, pontos_em_x_da_posicao_bola, 
-pontos_em_y_da_posicao_robo, pontos_em_y_da_posicao_bola, interceptacoes_x, interceptacoes_y)
+pontos_em_y_da_posicao_robo, pontos_em_y_da_posicao_bola, interceptacoes_x, interceptacoes_y,
+distancia)
 
 #função com raio de interceptação com y negativo
 funcoes.raio_de_interceptação(pontos_em_x_da_posicao_robo, pontos_em_x_da_posicao_bola, 
 pontos_em_y_da_posicao_robo_negativos, pontos_em_y_da_posicao_bola, interceptacoes_x_do_y_negativo, 
-interceptacoes_y_negativo)
+interceptacoes_y_negativo, distancia_y_negativo)
 
 #variável que pega o tempo em que o robô e a bola se encontram.
 tempo_interceptacao = funcoes.tempo_robo(interceptacoes_x)
@@ -140,7 +143,7 @@ while True:
 
 
     elif opcao == 8:
-        ...
+        funcoes.grafico_distancia(distancia, lista_tempo)
 
     elif opcao == 0:
         print()

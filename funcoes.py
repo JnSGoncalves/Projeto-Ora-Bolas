@@ -133,11 +133,12 @@ def grafico_trajetoria_da_bola(lista_x, lista_y):
 
 
 #função que armazena os pontos de interceptações.
-def raio_de_interceptação(x_robo, x_bola, y_robo, y_bola, lista_x, lista_y):
+def raio_de_interceptação(x_robo, x_bola, y_robo, y_bola, lista_x, lista_y, lista_distancia):
     for i in range(len(x_robo)):
         for j in range(len(x_bola)):
             distancia = sqrt((x_robo[i] - x_bola[j])**2 + (y_robo[i] - y_bola[j])**2)
             if distancia <= 0.1115:
+                lista_distancia.append(distancia)
                 return True
             else:
                 if x_robo[i] in lista_x or y_robo[i] in lista_y:
@@ -145,6 +146,7 @@ def raio_de_interceptação(x_robo, x_bola, y_robo, y_bola, lista_x, lista_y):
                 else:
                     lista_x.append(x_robo[i])
                     lista_y.append(y_robo[i])
+                    lista_distancia.append(distancia)
 
 #função que lê o tempo de encontro entre o robo e a bola
 def tempo_robo(interceptacoes_x):
@@ -325,3 +327,19 @@ def grafico_aceleracao_Y(pontos_em_y_da_aceleracao_robo, interceptacoes_y,
         #definindo começo, fim, intervalo no eixo Y.
         plt.yticks(np.arange(-1, 3, 0.2))
         plt.show()
+
+def grafico_distancia(distancia, lista_tempo):
+        fig, ax = plt.subplots()  
+        # Plotagem dos dados com diferentes cores
+        plt.plot(lista_tempo[0:len(distancia)], 
+                 distancia,
+                color='blue', label='Distância')
+        # Adicionando legenda
+        plt.legend()
+        # Definindo a cor do texto da legenda
+        plt.legend().get_texts()[0].set_color("blue")  # Distância em azul
+        ax.set_xlabel('Tempo (s)')
+        ax.set_ylabel('Distância (m)')
+        ax.set_title('Distância entre o robô e  bola em função do tempo')
+        plt.show()
+     
