@@ -66,7 +66,7 @@ def aceleracao_bola_y(t=0):
 
 #Funções do robô
 def posicao_robo_x(t=0, aceleracao=aceleracao_robo_x):
-    if x_do_robo > X_inicial_bola:
+    if x_do_robo > X_inicial_bola and y_do_robo < x_do_robo:
         aceleracao = aceleracao_robo_x * (-1)
     if y_do_robo < Y_inicial_bola and  x_do_robo < X_inicial_bola:
         aceleracao = 2.8
