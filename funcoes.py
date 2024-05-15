@@ -28,11 +28,16 @@ aceleracao_robo_x = 2.8
 aceleracao_robo_y = 2.8
 X_inicial_bola = 1
 Y_inicial_bola = 0.5
-x_do_robo = float(input("Digite a posição do robô no eixo X: "))
-y_do_robo = float(input("Digite a posição do robô no eixo Y: "))
 
-if x_do_robo < X_inicial_bola and y_do_robo > x_do_robo and y_do_robo > X_inicial_bola:
-    aceleracao_robo_y = aceleracao_robo_y * (-1)
+def armazen_xy_robo(posX, posY):
+	global x_do_robo
+	global y_do_robo
+	
+	x_do_robo = posX
+	y_do_robo = posY
+	
+	if x_do_robo < X_inicial_bola and y_do_robo > x_do_robo and y_do_robo > X_inicial_bola:
+	    aceleracao_robo_y = aceleracao_robo_y * (-1)
 
 
 
