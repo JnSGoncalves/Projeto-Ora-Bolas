@@ -162,16 +162,16 @@ def grafico_trajetoria_XY(listax_robo, listay_robo, listax_bola, listay_bola, te
         # Plotagem dos dados com diferentes cores
         plt.plot(listax_robo, listay_robo,color='blue', label='Robô', )
         plt.plot(listax_bola, listay_bola,
-                 color='yellow', label='Bola', )
+                 color='orange', label='Bola', )
         plt.scatter(listax_robo[-1], listay_robo[-1], 
-                    color='green', label='Ponto de Encontro', s=20)
+                    color='black', label='Ponto de Encontro', s=20)
         # Adicionando legenda
         plt.legend()
         # Definindo a cor do texto da legenda
         plt.legend().get_texts()[0].set_color("blue")  # Robô em azul
-        plt.legend().get_texts()[1].set_color("yellow")  # Bola em amarelo
-        plt.legend().get_texts()[2].set_color("green")
-        plt.text(0.001, 4.2, f'Tempo: {tempo_interceptacao} s', fontsize=12, color='black')
+        plt.legend().get_texts()[1].set_color("orange")  # Bola em amarelo
+        plt.legend().get_texts()[2].set_color("black")
+        plt.text(0.021, 4.1, f'Tempo: {tempo_interceptacao} s', fontsize=12, color='black')
         ax.set_xlabel('X(m)')
         ax.set_ylabel('Y(m)')
         ax.set_title('Gráfico da interceptação entre o robô e a bola')
@@ -186,14 +186,15 @@ def grafico_trajetoria_X(interceptacoes_x, pontos_em_x_da_posicao_bola, lista_te
                 color='blue', label='Robô')
         plt.plot(lista_tempo[0:len(interceptacoes_x)],
                   pontos_em_x_da_posicao_bola[0:len(interceptacoes_x)], 
-                color='yellow', label='Bola')
+                color='orange', label='Bola')
         # Adicionando legenda
         plt.legend()
         # Definindo a cor do texto da legenda
         plt.legend().get_texts()[0].set_color("blue")  # Robô em azul
-        plt.legend().get_texts()[1].set_color("yellow")  # Bola em amarelo
+        plt.legend().get_texts()[1].set_color("orange")  # Bola em amarelo
         ax.set_xlabel('Tempo (s)')
         ax.set_ylabel('Posição X (m)')
+        ax.set_ylim(0, 9)
         ax.set_title('Trajetória do Robô e da Bola no eixo X em Função do Tempo')
         plt.show()
 
@@ -206,14 +207,15 @@ def grafico_trajetoria_Y(interceptacoes_y, pontos_em_y_da_posicao_bola, lista_te
                 color='blue', label='Robô')
         plt.plot(lista_tempo[0:len(interceptacoes_y)], 
                  pontos_em_y_da_posicao_bola[0:len(interceptacoes_y)], 
-                color='yellow', label='Bola')
+                color='orange', label='Bola')
         # Adicionando legenda
         plt.legend()
         # Definindo a cor do texto da legenda
         plt.legend().get_texts()[0].set_color("blue")  # Robô em azul
-        plt.legend().get_texts()[1].set_color("yellow")  # Bola em amarelo
+        plt.legend().get_texts()[1].set_color("orange")  # Bola em amarelo
         ax.set_xlabel('Tempo (s)')
         ax.set_ylabel('Posição Y (m)')
+        ax.set_ylim(0, 6)
         ax.set_title('Trajetória do Robô e da Bola no eixo Y em Função do Tempo')
         plt.show()
 
@@ -226,14 +228,15 @@ def grafico_trajetoria_Y_negativo(interceptacoes_y_negativo, pontos_em_y_da_posi
                 color='blue', label='Robô')
         plt.plot(lista_tempo[0:len(interceptacoes_y_negativo)], 
                  pontos_em_y_da_posicao_bola[0:len(interceptacoes_y_negativo)], 
-                color='yellow', label='Bola')
+                color='orange', label='Bola')
         # Adicionando legenda
         plt.legend()
         # Definindo a cor do texto da legenda
         plt.legend().get_texts()[0].set_color("blue")  # Robô em azul
-        plt.legend().get_texts()[1].set_color("yellow")  # Bola em amarelo
+        plt.legend().get_texts()[1].set_color("orange")  # Bola em amarelo
         ax.set_xlabel('Tempo (s)')
         ax.set_ylabel('Posição Y (m)')
+        ax.set_ylim(0, 6)
         ax.set_title('Trajetória do Robô e da Bola no eixo Y em Função do Tempo')
         plt.show()
 
@@ -247,12 +250,12 @@ def grafico_velocidade_X(pontos_em_x_da_velocidade_robo, interceptacoes_x,
                 color='blue', label='Robô')
         plt.plot(lista_tempo[0:len(interceptacoes_x)], 
                  pontos_em_x_da_velocidade_bola[0:len(interceptacoes_x)], 
-                color='yellow', label='Bola')
+                color='orange', label='Bola')
         # Adicionando legenda
         plt.legend()
         # Definindo a cor do texto da legenda
         plt.legend().get_texts()[0].set_color("blue")  # Robô em azul
-        plt.legend().get_texts()[1].set_color("yellow")  # Bola em amarelo
+        plt.legend().get_texts()[1].set_color("orange")  # Bola em amarelo
         ax.set_xlabel('Tempo (s)')
         ax.set_ylabel('Velocidade X(m)')
         ax.set_title('Velocidade do robô e bola em função do tempo no eixo X')
@@ -269,12 +272,12 @@ def grafico_velocidade_Y(pontos_em_y_da_velocidade_robo, interceptacoes_y,
                 color='blue', label='Robô')
         plt.plot(lista_tempo[0:len(interceptacoes_y)], 
                  pontos_em_y_da_velocidade_bola[0:len(interceptacoes_y)], 
-                color='yellow', label='Bola')
+                color='orange', label='Bola')
         # Adicionando legenda
         plt.legend()
         # Definindo a cor do texto da legenda
         plt.legend().get_texts()[0].set_color("blue")  # Robô em azul
-        plt.legend().get_texts()[1].set_color("yellow")  # Bola em amarelo
+        plt.legend().get_texts()[1].set_color("orange")  # Bola em amarelo
         ax.set_xlabel('Tempo (s)')
         ax.set_ylabel('Velocidade Y(m)')
         ax.set_title('Velocidade do robô e bola em  função do tempo no eixo Y')
@@ -292,12 +295,12 @@ def grafico_aceleracao_X(pontos_em_x_da_aceleracao_robo, interceptacoes_x,
                 color='blue', label='Robô')
         plt.plot(lista_tempo[0:len(interceptacoes_x)], 
                  pontos_em_x_da_aceleracao_bola[0:len(interceptacoes_x)], 
-                color='yellow', label='Bola')
+                color='orange', label='Bola')
         # Adicionando legenda
         plt.legend()
         # Definindo a cor do texto da legenda
         plt.legend().get_texts()[0].set_color("blue")  # Robô em azul
-        plt.legend().get_texts()[1].set_color("yellow")  # Bola em amarelo
+        plt.legend().get_texts()[1].set_color("orange")  # Bola em amarelo
         ax.set_xlabel('Tempo (s)')
         ax.set_ylabel('Aceleração X(m)')
         ax.set_title('Aceleração do robô e bola em  função do tempo no eixo X')
@@ -315,12 +318,12 @@ def grafico_aceleracao_Y(pontos_em_y_da_aceleracao_robo, interceptacoes_y,
                 color='blue', label='Robô')
         plt.plot(lista_tempo[0:len(interceptacoes_y)], 
                  pontos_em_y_da_aceleracao_bola[0:len(interceptacoes_y)], 
-                color='yellow', label='Bola')
+                color='orange', label='Bola')
         # Adicionando legenda
         plt.legend()
         # Definindo a cor do texto da legenda
         plt.legend().get_texts()[0].set_color("blue")  # Robô em azul
-        plt.legend().get_texts()[1].set_color("yellow")  # Bola em amarelo
+        plt.legend().get_texts()[1].set_color("orange")  # Bola em amarelo
         ax.set_xlabel('Tempo (s)')
         ax.set_ylabel('Aceleração Y(m)')
         ax.set_title('Aceleração do robô e bola em  função do tempo no eixo Y')
@@ -333,11 +336,11 @@ def grafico_distancia(distancia, lista_tempo):
         # Plotagem dos dados com diferentes cores
         plt.plot(lista_tempo[0:len(distancia)], 
                  distancia,
-                color='blue', label='Distância')
+                color='red', label='Distância')
         # Adicionando legenda
         plt.legend()
         # Definindo a cor do texto da legenda
-        plt.legend().get_texts()[0].set_color("blue")  # Distância em azul
+        plt.legend().get_texts()[0].set_color("red")  # Distância em azul
         ax.set_xlabel('Tempo (s)')
         ax.set_ylabel('Distância (m)')
         ax.set_title('Distância entre o robô e  bola em função do tempo')
