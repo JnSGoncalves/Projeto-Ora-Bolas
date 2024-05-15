@@ -30,12 +30,41 @@ pontos_em_y_da_aceleracao_robo = []
 distancia = []
 distancia_y_negativo = []
 
-tempo_interceptacao = None
-
-x_do_robo = None
-y_do_robo = None
+tempo_interceptacao = 0
 
 def inicio_programa():
+	global lista_tempo
+
+	#pontos_da_bola
+	global pontos_em_x_da_posicao_bola
+	global pontos_em_y_da_posicao_bola
+	global pontos_em_x_da_velocidade_bola
+	global pontos_em_y_da_velocidade_bola
+	global pontos_em_x_da_aceleracao_bola
+	global pontos_em_y_da_aceleracao_bola
+
+	#pontos do robô
+	global pontos_em_x_da_posicao_robo
+	global pontos_em_y_da_posicao_robo
+	global pontos_em_y_da_posicao_robo_negativos
+	global interceptacoes_x
+	global interceptacoes_y
+	#separando
+	global interceptacoes_x_do_y_negativo
+	global interceptacoes_y_negativo
+	# -----
+	global pontos_em_x_da_velocidade_robo
+	global pontos_em_y_da_velocidade_robo
+	global pontos_em_x_da_aceleracao_robo
+	global pontos_em_y_da_aceleracao_robo
+	global distancia
+	global distancia_y_negativo
+
+	global tempo_interceptacao
+	
+	lista_tempo = []
+	
+	#pontos_da_bola
 	pontos_em_x_da_posicao_bola = []
 	pontos_em_y_da_posicao_bola = []
 	pontos_em_x_da_velocidade_bola = []
@@ -59,7 +88,8 @@ def inicio_programa():
 	pontos_em_y_da_aceleracao_robo = []
 	distancia = []
 	distancia_y_negativo = []
-	
+
+	tempo_interceptacao = 0
 	
 	# GRÁFICO DE INTERCEPTAÇÃO DO ROBÔ EM X E Y.
 	
@@ -118,15 +148,16 @@ def inicio_programa():
 
 
 
+
 def grafico1():
 	funcoes.grafico_trajetoria_XY(interceptacoes_x, interceptacoes_y, pontos_em_x_da_posicao_bola,
 						  pontos_em_y_da_posicao_bola, tempo_interceptacao)
-	
+
 
 def grafico2():
 	funcoes.grafico_trajetoria_X(pontos_em_x_da_posicao_robo, pontos_em_x_da_posicao_bola, 
 						lista_tempo)
-	
+
 
 def grafico3():
 	if funcoes.y_do_robo > funcoes.Y_inicial_bola + 0.1:
@@ -136,7 +167,8 @@ def grafico3():
 	else:
 		funcoes.grafico_trajetoria_Y(pontos_em_y_da_posicao_robo, 
 		pontos_em_y_da_posicao_bola, lista_tempo)
-	
+
+
 def grafico4():
 	funcoes.grafico_distancia(distancia, lista_tempo)
 
@@ -144,17 +176,17 @@ def grafico4():
 def grafico5():
 	funcoes.grafico_velocidade_X(pontos_em_x_da_velocidade_robo, interceptacoes_x, 
 						 pontos_em_x_da_velocidade_bola, lista_tempo)
-	
+
 
 def grafico6():
 	funcoes.grafico_velocidade_Y(pontos_em_y_da_velocidade_robo, interceptacoes_y,
 						 pontos_em_y_da_velocidade_bola, lista_tempo)
-	
+
 
 def grafico7():
 	funcoes.grafico_aceleracao_X(pontos_em_x_da_aceleracao_robo, interceptacoes_x,
 						 pontos_em_x_da_aceleracao_bola, lista_tempo)
-	
+
 
 def grafico8():
 	funcoes.grafico_aceleracao_Y(pontos_em_y_da_aceleracao_robo, interceptacoes_y,
