@@ -108,18 +108,18 @@ while True:
         
 
     elif opcao == 2:
-        funcoes.grafico_trajetoria_X(interceptacoes_x, pontos_em_x_da_posicao_bola, 
+        funcoes.grafico_trajetoria_X(pontos_em_x_da_posicao_robo, pontos_em_x_da_posicao_bola, 
                             lista_tempo)
         
 
     elif opcao == 3:
         if funcoes.y_do_robo > funcoes.Y_inicial_bola + 0.1:
-            funcoes.grafico_trajetoria_Y_negativo(interceptacoes_y_negativo, pontos_em_y_da_posicao_bola,
-                             lista_tempo)
+            funcoes.grafico_trajetoria_Y_negativo(pontos_em_y_da_posicao_robo_negativos, 
+            pontos_em_y_da_posicao_bola, lista_tempo)
 
         else:
-            funcoes.grafico_trajetoria_Y(interceptacoes_y, pontos_em_y_da_posicao_bola,
-                             lista_tempo)
+            funcoes.grafico_trajetoria_Y(pontos_em_y_da_posicao_robo, 
+            pontos_em_y_da_posicao_bola, lista_tempo)
         
 
     elif opcao == 4:
