@@ -30,6 +30,8 @@ pontos_em_y_da_aceleracao_robo = []
 distancia = []
 distancia_y_negativo = []
 
+tempo_interceptacao = None
+
 x_do_robo = None
 y_do_robo = None
 
