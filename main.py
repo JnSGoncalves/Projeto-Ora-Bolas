@@ -1,8 +1,7 @@
 from tkinter import *
+import principal
+import funcoes
 # import tkinter as tk
-
-posX = None
-posY = None
 
 fontTexto = ("Arial", "12")
 fontTitulo = ("Calibri", "15", "italic")
@@ -91,9 +90,6 @@ class menu_inicial:
         pass
     
     def colectPos(self):
-        global posX
-        global posY
-        
         posX = self.posX.get()
         try:
             posX = float(posX)
@@ -108,9 +104,9 @@ class menu_inicial:
             self.textRetorno["text"] = "Digite somente Números"
             return
         
-        print("X = ", posX, " Y = ", posY)
-        
-        self.app.destroy()
+        funcoes.armazen_xy_robo(posX, posY)
+        principal.inicio_programa()
+        self.app.destroy() 
         menu_principal()
     
 
@@ -150,7 +146,7 @@ class menu_principal:
         self.grafico1["text"] = "Abrir"
         self.grafico1["font"] = fontTexto
         self.grafico1["width"] = 8
-        # self.grafico1["command"] = self
+        self.grafico1["command"] = principal.grafico1
         self.grafico1.grid(row = self.row_index, column = 1, padx = 15, sticky = 'e')
         
         self.row_index += 1
@@ -164,7 +160,7 @@ class menu_principal:
         self.grafico2["text"] = "Abrir"
         self.grafico2["font"] = fontTexto
         self.grafico2["width"] = 8
-        # self.grafico2["command"] = self
+        self.grafico2["command"] = principal.grafico2
         self.grafico2.grid(row = self.row_index, column = 1, padx = 15, sticky = 'e')
         
         self.row_index += 1
@@ -178,22 +174,22 @@ class menu_principal:
         self.grafico3["text"] = "Abrir"
         self.grafico3["font"] = fontTexto
         self.grafico3["width"] = 8
-        # self.grafico3["command"] = self
+        self.grafico3["command"] = principal.grafico3
         self.grafico3.grid(row = self.row_index, column = 1, padx = 15, sticky = 'e')
         
         self.row_index += 1
         
         # Gráfico da distância entre o robô e a bola.
-        self.text_8 = Label(self.menu, text = "Gráfico da distancia entre o robô e a bola")
-        self.text_8["font"] = fontTexto
-        self.text_8.grid(row = self.row_index, column = 0, padx = 15, sticky = 'w')
+        self.text_4 = Label(self.menu, text = "Gráfico da distancia entre o robô e a bola")
+        self.text_4["font"] = fontTexto
+        self.text_4.grid(row = self.row_index, column = 0, padx = 15, sticky = 'w')
         
-        self.grafico8 = Button(self.menu)
-        self.grafico8["text"] = "Abrir"
-        self.grafico8["font"] = fontTexto
-        self.grafico8["width"] = 8
-        # self.grafico8["command"] = self
-        self.grafico8.grid(row = self.row_index, column = 1, padx = 15, sticky = 'e')
+        self.grafico4 = Button(self.menu)
+        self.grafico4["text"] = "Abrir"
+        self.grafico4["font"] = fontTexto
+        self.grafico4["width"] = 8
+        self.grafico4["command"] = principal.grafico4
+        self.grafico4.grid(row = self.row_index, column = 1, padx = 15, sticky = 'e')
         
         self.row_index += 1
         
@@ -206,21 +202,7 @@ class menu_principal:
         self.row_index += 1
         
         # Gráfico da Velocidade em X do robô e a bola.
-        self.text_4 = Label(self.menu, text = "Gráfico da velocidade em X")
-        self.text_4["font"] = fontTexto
-        self.text_4.grid(row = self.row_index, column = 0, padx = 15, sticky = 'w')
-        
-        self.grafico4 = Button(self.menu)
-        self.grafico4["text"] = "Abrir"
-        self.grafico4["font"] = fontTexto
-        self.grafico4["width"] = 8
-        # self.grafico4["command"] = self
-        self.grafico4.grid(row = self.row_index, column = 1, padx = 15, sticky = 'e')
-        
-        self.row_index += 1
-        
-        # Gráfico da velocidade em Y do robô e a bola.
-        self.text_5 = Label(self.menu, text = "Gráfico da velocidade em Y")
+        self.text_5 = Label(self.menu, text = "Gráfico da velocidade em X")
         self.text_5["font"] = fontTexto
         self.text_5.grid(row = self.row_index, column = 0, padx = 15, sticky = 'w')
         
@@ -228,8 +210,22 @@ class menu_principal:
         self.grafico5["text"] = "Abrir"
         self.grafico5["font"] = fontTexto
         self.grafico5["width"] = 8
-        # self.grafico5["command"] = self
+        self.grafico5["command"] = principal.grafico5
         self.grafico5.grid(row = self.row_index, column = 1, padx = 15, sticky = 'e')
+        
+        self.row_index += 1
+        
+        # Gráfico da velocidade em Y do robô e a bola.
+        self.text_6 = Label(self.menu, text = "Gráfico da velocidade em Y")
+        self.text_6["font"] = fontTexto
+        self.text_6.grid(row = self.row_index, column = 0, padx = 15, sticky = 'w')
+        
+        self.grafico6 = Button(self.menu)
+        self.grafico6["text"] = "Abrir"
+        self.grafico6["font"] = fontTexto
+        self.grafico6["width"] = 8
+        self.grafico6["command"] = principal.grafico6
+        self.grafico6.grid(row = self.row_index, column = 1, padx = 15, sticky = 'e')
         
         self.row_index += 1
         
@@ -242,21 +238,7 @@ class menu_principal:
         self.row_index += 1
         
         # Gráfico da aceleração em X do robo e a bola.
-        self.text_6 = Label(self.menu, text = "Gráfico da aceleração em X")
-        self.text_6["font"] = fontTexto
-        self.text_6.grid(row = self.row_index, column = 0, padx = 15, sticky = 'w')
-        
-        self.grafico6 = Button(self.menu)
-        self.grafico6["text"] = "Abrir"
-        self.grafico6["font"] = fontTexto
-        self.grafico6["width"] = 8
-        # self.grafico6["command"] = self
-        self.grafico6.grid(row = self.row_index, column = 1, padx = 15, sticky = 'e')
-        
-        self.row_index += 1
-        
-        # Gráfico da aceleração em Y do robo e a bola.
-        self.text_7 = Label(self.menu, text = "Gráfico da aceleração em Y")
+        self.text_7 = Label(self.menu, text = "Gráfico da aceleração em X")
         self.text_7["font"] = fontTexto
         self.text_7.grid(row = self.row_index, column = 0, padx = 15, sticky = 'w')
         
@@ -264,8 +246,22 @@ class menu_principal:
         self.grafico7["text"] = "Abrir"
         self.grafico7["font"] = fontTexto
         self.grafico7["width"] = 8
-        # self.grafico7["command"] = self
+        self.grafico7["command"] = principal.grafico7
         self.grafico7.grid(row = self.row_index, column = 1, padx = 15, sticky = 'e')
+        
+        self.row_index += 1
+        
+        # Gráfico da aceleração em Y do robo e a bola.
+        self.text_8 = Label(self.menu, text = "Gráfico da aceleração em Y")
+        self.text_8["font"] = fontTexto
+        self.text_8.grid(row = self.row_index, column = 0, padx = 15, sticky = 'w')
+        
+        self.grafico8 = Button(self.menu)
+        self.grafico8["text"] = "Abrir"
+        self.grafico8["font"] = fontTexto
+        self.grafico8["width"] = 8
+        self.grafico8["command"] = principal.grafico8
+        self.grafico8.grid(row = self.row_index, column = 1, padx = 15, sticky = 'e')
         
         
         # Menu de opções
@@ -290,6 +286,7 @@ class menu_principal:
     def voltar_func(self):
         self.app.destroy()
         menu_inicial()
+
 
 root = Tk()
 root.title("Projeto Ora Bolas!")
