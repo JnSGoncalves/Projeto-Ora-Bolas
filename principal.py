@@ -198,4 +198,7 @@ def grafico9():
 	pontos_em_y_da_velocidade_bola[0], pontos_em_x_da_velocidade_bola[-1], pontos_em_y_da_velocidade_bola[-1])
 
 def grafico10():
-	...
+	funcoes.vetor_aceleracao(pontos_em_x_da_aceleracao_robo[0], pontos_em_y_da_aceleracao_robo[0],
+	pontos_em_x_da_aceleracao_robo[-1], pontos_em_y_da_aceleracao_robo[-1], pontos_em_x_da_aceleracao_bola[0],
+	pontos_em_y_da_aceleracao_bola[0], pontos_em_x_da_aceleracao_bola[-1], pontos_em_y_da_aceleracao_bola[-1])
+

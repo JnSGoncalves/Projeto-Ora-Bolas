@@ -297,7 +297,7 @@ class menu_principal:
         self.grafico10["text"] = "Abrir"
         self.grafico10["font"] = fontTexto
         self.grafico10["width"] = 8
-        # self.grafico10["command"] = principal.grafico10
+        self.grafico10["command"] = principal.grafico10
         self.grafico10.grid(row = self.row_index, column = 1, padx = 15, sticky = 'e')
         
         # Menu de opções
