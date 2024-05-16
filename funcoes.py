@@ -354,3 +354,54 @@ def grafico_distancia(distancia, lista_tempo):
 		ax.set_ylabel('Distância (m)')
 		ax.set_title('Distância entre o robô e  bola em função do tempo')
 		plt.show()
+
+
+def vetor_velocidade(origemXRobo, origemYRobo, finalXRobo, finalYRobo, origemXbola, origemYbola, finalXbola, finalYbola):
+	fig, ax = plt.subplots()
+	ax.quiver(origemXRobo, origemYRobo, finalXRobo, finalYRobo, angles='xy', scale_units='xy', scale=1, color='blue', label='Vetores do Robô')
+	ax.quiver(origemXbola, origemYbola, finalXbola, finalYbola, angles='xy', scale_units='xy', scale=1, color='orange', label='Vetores da Bola')
+	# Configuração dos eixos
+	ax.set_xlim([-1, 4])
+	ax.set_ylim([-2, 3])
+
+	# Adição de rótulos e título
+	ax.set_xlabel('X')
+	ax.set_ylabel('Y')
+	ax.set_title('Vetores Velocidade')
+
+	ax.set_xlim([-1, 4])
+	ax.set_ylim([-2, 4])
+
+	# Exibição do gráfico
+	plt.legend()
+	plt.grid()
+	plt.show()
+
+def vetor_aceleracao(origemXRobo, origemYRobo, finalXRobo, finalYRobo, origemXbola, origemYbola, finalXbola, finalYbola):
+	fig, ax = plt.subplots()
+	ax.quiver(origemXRobo, origemYRobo, finalXRobo, finalYRobo, angles='xy', scale_units='xy', scale=1, color='blue', label='Vetores do Robô')
+	ax.quiver(origemXbola, origemYbola, finalXbola, finalYbola, angles='xy', scale_units='xy', scale=1, color='orange', label='Vetores da Bola')
+	# Configuração dos eixos
+	ax.set_xlim([-1, 10])
+	ax.set_ylim([-2, 10])
+
+	# Adição de rótulos e título
+	ax.set_xlabel('X')
+	ax.set_ylabel('Y')
+	ax.set_title('Vetores Aceleração')
+
+	# Exibição do gráfico
+	plt.legend()
+	plt.grid()
+	plt.show()
+
+
+
+
+	 
+
+
+
+
+
+
