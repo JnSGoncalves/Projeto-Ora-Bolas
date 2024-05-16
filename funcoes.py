@@ -35,7 +35,7 @@ y_do_robo = -1
 def armazen_xy_robo(x, y):
 	global x_do_robo
 	global y_do_robo
-	global aceleracao_bola_y
+	global aceleracao_robo_y
 	
 	x_do_robo = x
 	y_do_robo = y

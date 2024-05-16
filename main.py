@@ -1,7 +1,7 @@
 from tkinter import *
 import principal
 import funcoes
-# import tkinter as tk
+import random
 
 fontTexto = ("Arial", "12")
 fontTitulo = ("Calibri", "15", "italic")
@@ -103,6 +103,10 @@ class menu_inicial:
         except:
             self.textRetorno["text"] = "Digite somente Números"
             return
+        
+        # posX = round(random.uniform(0, 2), 3)
+        # posY = round(random.uniform(0, 1.5), 3)
+        # print("X: ",posX, "  Y: ", posY)
         
         funcoes.armazen_xy_robo(posX, posY)
         principal.inicio_programa()
