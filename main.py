@@ -1,7 +1,7 @@
 from tkinter import *
 import principal
 import funcoes
-import random
+# import random
 
 fontTexto = ("Arial", "12")
 fontTitulo = ("Calibri", "15", "italic")
