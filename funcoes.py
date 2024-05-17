@@ -180,11 +180,11 @@ def grafico_trajetoria_XY(listax_robo, listay_robo, listax_bola, listay_bola, te
 		plt.legend().get_texts()[0].set_color("blue")  # Robô em azul
 		plt.legend().get_texts()[1].set_color("orange")  # Bola em amarelo
 		plt.legend().get_texts()[2].set_color("black")
-		plt.text(0.021, 4.1, f'Tempo: {tempo_interceptacao} s', fontsize=12, color='black')
+		plt.text(1.5, 7.1, f'Tempo: {tempo_interceptacao} s', fontsize=12, color='black')
 		ax.set_xlabel('X(m)')
 		ax.set_ylabel('Y(m)')
-		ax.set_ylim(0, 6)
-		ax.set_xlim(0, 9)
+		ax.set_ylim(0, 9)
+		ax.set_xlim(0, 6)
 		ax.set_title('Gráfico da interceptação entre o robô e a bola')
 		plt.show()
 
@@ -205,7 +205,7 @@ def grafico_trajetoria_X(interceptacoes_x, pontos_em_x_da_posicao_bola, lista_te
 		plt.legend().get_texts()[1].set_color("orange")  # Bola em amarelo
 		ax.set_xlabel('Tempo (s)')
 		ax.set_ylabel('Posição X (m)')
-		ax.set_ylim(0, 9)
+		ax.set_ylim(0, 6)
 		ax.set_title('Trajetória do Robô e da Bola no eixo X em Função do Tempo')
 		plt.show()
 
@@ -226,7 +226,7 @@ def grafico_trajetoria_Y(interceptacoes_y, pontos_em_y_da_posicao_bola, lista_te
 		plt.legend().get_texts()[1].set_color("orange")  # Bola em amarelo
 		ax.set_xlabel('Tempo (s)')
 		ax.set_ylabel('Posição Y (m)')
-		ax.set_ylim(0, 6)
+		ax.set_ylim(0, 9)
 		ax.set_title('Trajetória do Robô e da Bola no eixo Y em Função do Tempo')
 		plt.show()
 
@@ -358,24 +358,24 @@ def grafico_distancia(distancia, lista_tempo):
 		plt.show()
 
 
-def vetor_velocidade(origemXRobo, origemYRobo, finalXRobo, 
+def vetor_velocidadeX(origemXRobo, origemYRobo, finalXRobo, 
 					 finalYRobo, origemXbola, origemYbola,
-					   finalXbola, finalYbola, moduloR, moduloB):
+					   finalXbola, finalYbola,):
 	fig, ax = plt.subplots()
 	ax.quiver(origemXRobo, origemYRobo, finalXRobo, finalYRobo,
 		    angles='xy', scale_units='xy', scale=1, color='blue', 
-			label=f'Vetor Velocidade Robo (Módulo: {moduloR})')
+			label=f'Vetor Velocidade Robo')
 	ax.quiver(origemXbola, origemYbola, finalXbola, finalYbola, angles='xy',
 		    scale_units='xy', scale=1, color='orange', 
-			label=f'Vetor Velocidade bola (Módulo: {moduloB})')
+			label=f'Vetor Velocidade bola')
 	# Configuração dos eixos
 	ax.set_xlim([-1, 4])
 	ax.set_ylim([-2, 3])
 
 	# Adição de rótulos e título
-	ax.set_xlabel('X')
-	ax.set_ylabel('Y')
-	ax.set_title('Vetores Velocidade')
+	ax.set_xlabel('tempo (s)')
+	ax.set_ylabel('X (m)')
+	ax.set_title('Vetores Velocidade em X')
 
 	ax.set_xlim([-1, 4])
 	ax.set_ylim([-2, 4])
@@ -385,33 +385,82 @@ def vetor_velocidade(origemXRobo, origemYRobo, finalXRobo,
 	plt.grid()
 	plt.show()
 
-def vetor_aceleracao(origemXRobo, origemYRobo, finalXRobo, finalYRobo, 
+def vetor_aceleracaoX(origemXRobo, origemYRobo, finalXRobo, finalYRobo, 
 					 origemXbola, origemYbola, finalXbola, finalYbola,
-					 moduloR, moduloB):
+					 ):
 	fig, ax = plt.subplots()
 	ax.quiver(origemXRobo, origemYRobo, finalXRobo, finalYRobo, angles='xy', 
 		   scale_units='xy', scale=1, color='blue', 
-		   label=f'Vetor aceleração Robô (módulo: 2.8)')
+		   label=f'Vetor aceleração Robô')
 	ax.quiver(origemXbola, origemYbola, finalXbola, finalYbola, angles='xy', 
 		   scale_units='xy', scale=1, color='orange', 
-		   label=f'Vetor aceleração bola (módulo: {moduloB})')
+		   label=f'Vetor aceleração bola')
 	# Configuração dos eixos
 	ax.set_xlim([-1, 10])
 	ax.set_ylim([-2, 10])
 
 	# Adição de rótulos e título
-	ax.set_xlabel('X')
-	ax.set_ylabel('Y')
-	ax.set_title('Vetores Aceleração')
+	ax.set_xlabel('tempo (s)')
+	ax.set_ylabel('X (m)')
+	ax.set_title('Vetores Aceleração em X')
 
 	# Exibição do gráfico
 	plt.legend()
 	plt.grid()
 	plt.show()
 
-def modulo_vetor(InicioX, finalX, inicioY, finalY):
-    modulo = round(np.sqrt(np.array(finalX - InicioX)**2 + np.array(finalY - inicioY)**2), 2)
-    return modulo
+def vetor_velocidadeY(origemXRobo, origemYRobo, finalXRobo, 
+					 finalYRobo, origemXbola, origemYbola,
+					   finalXbola, finalYbola,):
+	fig, ax = plt.subplots()
+	ax.quiver(origemXRobo, origemYRobo, finalXRobo, finalYRobo,
+		    angles='xy', scale_units='xy', scale=1, color='blue', 
+			label=f'Vetor Velocidade Robo')
+	ax.quiver(origemXbola, origemYbola, finalXbola, finalYbola, angles='xy',
+		    scale_units='xy', scale=1, color='orange', 
+			label=f'Vetor Velocidade bola')
+	# Configuração dos eixos
+	ax.set_xlim([-1, 4])
+	ax.set_ylim([-2, 3])
+
+	# Adição de rótulos e título
+	ax.set_xlabel('tempo (s)')
+	ax.set_ylabel('Y (m)')
+	ax.set_title('Vetores Velocidade em Y')
+
+	ax.set_xlim([-1, 4])
+	ax.set_ylim([-2, 4])
+
+	# Exibição do gráfico
+	plt.legend()
+	plt.grid()
+	plt.show()
+
+def vetor_aceleracaoY(origemXRobo, origemYRobo, finalXRobo, finalYRobo, 
+					 origemXbola, origemYbola, finalXbola, finalYbola,
+					 ):
+	fig, ax = plt.subplots()
+	ax.quiver(origemXRobo, origemYRobo, finalXRobo, finalYRobo, angles='xy', 
+		   scale_units='xy', scale=1, color='blue', 
+		   label=f'Vetor aceleração Robô ')
+	ax.quiver(origemXbola, origemYbola, finalXbola, finalYbola, angles='xy', 
+		   scale_units='xy', scale=1, color='orange', 
+		   label=f'Vetor aceleração bola')
+	# Configuração dos eixos
+	ax.set_xlim([-1, 10])
+	ax.set_ylim([-2, 10])
+
+	# Adição de rótulos e título
+	ax.set_xlabel('tempo (s)')
+	ax.set_ylabel('Y (m)')
+	ax.set_title('Vetores Aceleração em Y')
+
+	# Exibição do gráfico
+	plt.legend()
+	plt.grid()
+	plt.show()
+
+
 
 
 

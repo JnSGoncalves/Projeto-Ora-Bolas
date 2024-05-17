@@ -61,10 +61,15 @@ def inicio_programa():
 	global distancia_y_negativo
 
 	global tempo_interceptacao
-	global moduloRv
-	global moduloBv
-	global moduloRac
-	global moduloBac
+	global moduloRvx
+	global moduloBvx
+	global moduloRacx
+	global moduloBacx
+	
+	global moduloRvy
+	global moduloBvy
+	global moduloRacy
+	global moduloBacy
 	
 	lista_tempo = []
 	
@@ -150,26 +155,11 @@ def inicio_programa():
 	funcoes.return_pontos_exatos_da_funcao(funcoes.aceleracao_robo,
 	pontos_em_y_da_aceleracao_robo)
 
-	#Módulo dos vetores
-	moduloRv = funcoes.modulo_vetor(pontos_em_x_da_velocidade_robo[0],
-			   pontos_em_x_da_velocidade_robo[-1],
-			   pontos_em_y_da_velocidade_robo[0], 
-			   pontos_em_y_da_velocidade_robo[-1],)
-	
-	moduloBv = funcoes.modulo_vetor(pontos_em_x_da_velocidade_bola[0], 
-			    pontos_em_x_da_velocidade_bola[-1],
-			    pontos_em_y_da_velocidade_bola[0], 
-				pontos_em_y_da_velocidade_bola[-1])
-	
-	moduloRac = funcoes.modulo_vetor(0, pontos_em_x_da_aceleracao_robo[-1], 0, 
-				pontos_em_y_da_aceleracao_robo[-1])
-	moduloBac = funcoes.modulo_vetor(pontos_em_x_da_aceleracao_bola[0], 
-				pontos_em_x_da_aceleracao_bola[-1], pontos_em_y_da_aceleracao_bola[0],
-				pontos_em_y_da_aceleracao_bola[-1])
 
 
 
 
+#Gráficos
 def grafico1():
 	funcoes.grafico_trajetoria_XY(interceptacoes_x, interceptacoes_y, pontos_em_x_da_posicao_bola,
 						  pontos_em_y_da_posicao_bola, tempo_interceptacao)
@@ -214,23 +204,43 @@ def grafico8():
 						 pontos_em_y_da_aceleracao_bola, lista_tempo)
 
 def grafico9():
-	funcoes.vetor_velocidade(pontos_em_x_da_velocidade_robo[0], 
-						     pontos_em_y_da_velocidade_robo[0],
-	pontos_em_x_da_velocidade_robo[-1], 
-	pontos_em_y_da_velocidade_robo[-1], 
-	pontos_em_x_da_velocidade_bola[0],
-	pontos_em_y_da_velocidade_bola[0], 
-	pontos_em_x_da_velocidade_bola[-1], 
-	pontos_em_y_da_velocidade_bola[-1],
-	moduloRv, moduloBv)
+	funcoes.vetor_velocidadeX(lista_tempo[0], 
+						     pontos_em_x_da_velocidade_robo[0],
+	lista_tempo[len(interceptacoes_x)], 
+	pontos_em_x_da_velocidade_robo[len(interceptacoes_x)], 
+	lista_tempo[len(interceptacoes_x)],
+	pontos_em_x_da_velocidade_bola[0], 
+	lista_tempo[len(interceptacoes_x)], 
+	pontos_em_x_da_velocidade_bola[len(interceptacoes_x)])
 
 def grafico10():
-	funcoes.vetor_aceleracao(pontos_em_x_da_aceleracao_bola[0], 
+	funcoes.vetor_aceleracaoX(lista_tempo[0], 
+	pontos_em_x_da_aceleracao_robo[0],
+	lista_tempo[len(interceptacoes_x)], lista_tempo[len(interceptacoes_x)], 
+	lista_tempo[0],
+	pontos_em_x_da_aceleracao_bola[0], 
+	lista_tempo[len(interceptacoes_x)], 
+	pontos_em_x_da_aceleracao_bola[len(interceptacoes_x)])
+
+def grafico11():
+	funcoes.vetor_velocidadeY(lista_tempo[0], 
+	pontos_em_y_da_velocidade_robo[0],
+	lista_tempo[len(interceptacoes_y)], 
+	pontos_em_y_da_velocidade_robo[len(interceptacoes_y)], 
+	lista_tempo[len(interceptacoes_y)],
+	pontos_em_y_da_velocidade_bola[0], 
+	lista_tempo[len(interceptacoes_y)], 
+	pontos_em_y_da_velocidade_bola[len(interceptacoes_y)])
+
+def grafico12():
+	funcoes.vetor_aceleracaoY(lista_tempo[0], 
 	pontos_em_y_da_aceleracao_robo[0],
-	pontos_em_x_da_aceleracao_robo[-1], 0, 
-	pontos_em_x_da_aceleracao_bola[0],
+	lista_tempo[len(interceptacoes_y)], lista_tempo[len(interceptacoes_y)], 
+	lista_tempo[0],
 	pontos_em_y_da_aceleracao_bola[0], 
-	pontos_em_x_da_aceleracao_bola[-1], 
-	pontos_em_y_da_aceleracao_bola[-1], moduloRac, moduloBac)
+	lista_tempo[len(interceptacoes_y)], 
+	pontos_em_y_da_aceleracao_bola[len(interceptacoes_y)])
+
+
 
 

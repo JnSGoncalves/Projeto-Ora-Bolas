@@ -276,7 +276,7 @@ class menu_principal:
 
         self.row_index += 1
 
-        self.text_9 = Label(self.menu, text = "Gráfico dos vetores de Velocidade")
+        self.text_9 = Label(self.menu, text = "Gráfico dos vetores de Velocidade em X")
         self.text_9["font"] = fontTexto
         self.text_9.grid(row = self.row_index, column = 0, padx = 15, sticky = 'w')
         
@@ -289,7 +289,7 @@ class menu_principal:
 
         self.row_index += 1
 
-        self.text_10 = Label(self.menu, text = "Gráfico dos vetores de Aceleração")
+        self.text_10 = Label(self.menu, text = "Gráfico dos vetores de Aceleração em X")
         self.text_10["font"] = fontTexto
         self.text_10.grid(row = self.row_index, column = 0, padx = 15, sticky = 'w')
         
@@ -299,7 +299,33 @@ class menu_principal:
         self.grafico10["width"] = 8
         self.grafico10["command"] = principal.grafico10
         self.grafico10.grid(row = self.row_index, column = 1, padx = 15, sticky = 'e')
+
+        self.row_index += 1
+
+        self.text_11 = Label(self.menu, text = "Gráfico dos vetores de Velocidade em Y")
+        self.text_11["font"] = fontTexto
+        self.text_11.grid(row = self.row_index, column = 0, padx = 15, sticky = 'w')
         
+        self.grafico11 = Button(self.menu)
+        self.grafico11["text"] = "Abrir"
+        self.grafico11["font"] = fontTexto
+        self.grafico11["width"] = 8
+        self.grafico11["command"] = principal.grafico11
+        self.grafico11.grid(row = self.row_index, column = 1, padx = 15, sticky = 'e')
+
+        self.row_index += 1
+
+        self.text_12 = Label(self.menu, text = "Gráfico dos vetores de Aceleração em Y")
+        self.text_12["font"] = fontTexto
+        self.text_12.grid(row = self.row_index, column = 0, padx = 15, sticky = 'w')
+        
+        self.grafico12 = Button(self.menu)
+        self.grafico12["text"] = "Abrir"
+        self.grafico12["font"] = fontTexto
+        self.grafico12["width"] = 8
+        self.grafico12["command"] = principal.grafico12
+        self.grafico12.grid(row = self.row_index, column = 1, padx = 15, sticky = 'e')
+    
         # Menu de opções
         self.options = Frame(self.app)
         self.options["pady"] = 10
