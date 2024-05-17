@@ -183,6 +183,8 @@ def grafico_trajetoria_XY(listax_robo, listay_robo, listax_bola, listay_bola, te
 		plt.text(0.021, 4.1, f'Tempo: {tempo_interceptacao} s', fontsize=12, color='black')
 		ax.set_xlabel('X(m)')
 		ax.set_ylabel('Y(m)')
+		ax.set_ylim(0, 6)
+		ax.set_xlim(0, 9)
 		ax.set_title('Gráfico da interceptação entre o robô e a bola')
 		plt.show()
 
@@ -356,10 +358,16 @@ def grafico_distancia(distancia, lista_tempo):
 		plt.show()
 
 
-def vetor_velocidade(origemXRobo, origemYRobo, finalXRobo, finalYRobo, origemXbola, origemYbola, finalXbola, finalYbola):
+def vetor_velocidade(origemXRobo, origemYRobo, finalXRobo, 
+					 finalYRobo, origemXbola, origemYbola,
+					   finalXbola, finalYbola, moduloR, moduloB):
 	fig, ax = plt.subplots()
-	ax.quiver(origemXRobo, origemYRobo, finalXRobo, finalYRobo, angles='xy', scale_units='xy', scale=1, color='blue', label='Vetores do Robô')
-	ax.quiver(origemXbola, origemYbola, finalXbola, finalYbola, angles='xy', scale_units='xy', scale=1, color='orange', label='Vetores da Bola')
+	ax.quiver(origemXRobo, origemYRobo, finalXRobo, finalYRobo,
+		    angles='xy', scale_units='xy', scale=1, color='blue', 
+			label=f'Vetor Velocidade Robo (Módulo: {moduloR})')
+	ax.quiver(origemXbola, origemYbola, finalXbola, finalYbola, angles='xy',
+		    scale_units='xy', scale=1, color='orange', 
+			label=f'Vetor Velocidade bola (Módulo: {moduloB})')
 	# Configuração dos eixos
 	ax.set_xlim([-1, 4])
 	ax.set_ylim([-2, 3])
@@ -377,10 +385,16 @@ def vetor_velocidade(origemXRobo, origemYRobo, finalXRobo, finalYRobo, origemXbo
 	plt.grid()
 	plt.show()
 
-def vetor_aceleracao(origemXRobo, origemYRobo, finalXRobo, finalYRobo, origemXbola, origemYbola, finalXbola, finalYbola):
+def vetor_aceleracao(origemXRobo, origemYRobo, finalXRobo, finalYRobo, 
+					 origemXbola, origemYbola, finalXbola, finalYbola,
+					 moduloR, moduloB):
 	fig, ax = plt.subplots()
-	ax.quiver(origemXRobo, origemYRobo, finalXRobo, finalYRobo, angles='xy', scale_units='xy', scale=1, color='blue', label='Vetores do Robô')
-	ax.quiver(origemXbola, origemYbola, finalXbola, finalYbola, angles='xy', scale_units='xy', scale=1, color='orange', label='Vetores da Bola')
+	ax.quiver(origemXRobo, origemYRobo, finalXRobo, finalYRobo, angles='xy', 
+		   scale_units='xy', scale=1, color='blue', 
+		   label=f'Vetor aceleração Robô (módulo: 2.8)')
+	ax.quiver(origemXbola, origemYbola, finalXbola, finalYbola, angles='xy', 
+		   scale_units='xy', scale=1, color='orange', 
+		   label=f'Vetor aceleração bola (módulo: {moduloB})')
 	# Configuração dos eixos
 	ax.set_xlim([-1, 10])
 	ax.set_ylim([-2, 10])
@@ -394,6 +408,12 @@ def vetor_aceleracao(origemXRobo, origemYRobo, finalXRobo, finalYRobo, origemXbo
 	plt.legend()
 	plt.grid()
 	plt.show()
+
+def modulo_vetor(InicioX, finalX, inicioY, finalY):
+    modulo = round(np.sqrt(np.array(finalX - InicioX)**2 + np.array(finalY - inicioY)**2), 2)
+    return modulo
+
+
 
 
 

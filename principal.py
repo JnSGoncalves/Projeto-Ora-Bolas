@@ -61,6 +61,10 @@ def inicio_programa():
 	global distancia_y_negativo
 
 	global tempo_interceptacao
+	global moduloRv
+	global moduloBv
+	global moduloRac
+	global moduloBac
 	
 	lista_tempo = []
 	
@@ -146,6 +150,23 @@ def inicio_programa():
 	funcoes.return_pontos_exatos_da_funcao(funcoes.aceleracao_robo,
 	pontos_em_y_da_aceleracao_robo)
 
+	#Módulo dos vetores
+	moduloRv = funcoes.modulo_vetor(pontos_em_x_da_velocidade_robo[0],
+			   pontos_em_x_da_velocidade_robo[-1],
+			   pontos_em_y_da_velocidade_robo[0], 
+			   pontos_em_y_da_velocidade_robo[-1],)
+	
+	moduloBv = funcoes.modulo_vetor(pontos_em_x_da_velocidade_bola[0], 
+			    pontos_em_x_da_velocidade_bola[-1],
+			    pontos_em_y_da_velocidade_bola[0], 
+				pontos_em_y_da_velocidade_bola[-1])
+	
+	moduloRac = funcoes.modulo_vetor(0, pontos_em_x_da_aceleracao_robo[-1], 0, 
+				pontos_em_y_da_aceleracao_robo[-1])
+	moduloBac = funcoes.modulo_vetor(pontos_em_x_da_aceleracao_bola[0], 
+				pontos_em_x_da_aceleracao_bola[-1], pontos_em_y_da_aceleracao_bola[0],
+				pontos_em_y_da_aceleracao_bola[-1])
+
 
 
 
@@ -193,12 +214,23 @@ def grafico8():
 						 pontos_em_y_da_aceleracao_bola, lista_tempo)
 
 def grafico9():
-	funcoes.vetor_velocidade(pontos_em_x_da_velocidade_robo[0], pontos_em_y_da_velocidade_robo[0],
-	pontos_em_x_da_velocidade_robo[-1], pontos_em_y_da_velocidade_robo[-1], pontos_em_x_da_velocidade_bola[0],
-	pontos_em_y_da_velocidade_bola[0], pontos_em_x_da_velocidade_bola[-1], pontos_em_y_da_velocidade_bola[-1])
+	funcoes.vetor_velocidade(pontos_em_x_da_velocidade_robo[0], 
+						     pontos_em_y_da_velocidade_robo[0],
+	pontos_em_x_da_velocidade_robo[-1], 
+	pontos_em_y_da_velocidade_robo[-1], 
+	pontos_em_x_da_velocidade_bola[0],
+	pontos_em_y_da_velocidade_bola[0], 
+	pontos_em_x_da_velocidade_bola[-1], 
+	pontos_em_y_da_velocidade_bola[-1],
+	moduloRv, moduloBv)
 
 def grafico10():
-	funcoes.vetor_aceleracao(pontos_em_x_da_aceleracao_robo[0], pontos_em_y_da_aceleracao_robo[0],
-	pontos_em_x_da_aceleracao_robo[-1], pontos_em_y_da_aceleracao_robo[-1], pontos_em_x_da_aceleracao_bola[0],
-	pontos_em_y_da_aceleracao_bola[0], pontos_em_x_da_aceleracao_bola[-1], pontos_em_y_da_aceleracao_bola[-1])
+	funcoes.vetor_aceleracao(pontos_em_x_da_aceleracao_bola[0], 
+	pontos_em_y_da_aceleracao_robo[0],
+	pontos_em_x_da_aceleracao_robo[-1], 0, 
+	pontos_em_x_da_aceleracao_bola[0],
+	pontos_em_y_da_aceleracao_bola[0], 
+	pontos_em_x_da_aceleracao_bola[-1], 
+	pontos_em_y_da_aceleracao_bola[-1], moduloRac, moduloBac)
+
 
