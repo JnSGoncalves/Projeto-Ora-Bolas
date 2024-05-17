@@ -63,6 +63,8 @@ def inicio_programa():
 	global tempo_interceptacao
 	global moduloRv
 	global moduloBv
+	global moduloRac
+	global moduloBac
 	
 	lista_tempo = []
 	
@@ -151,6 +153,8 @@ def inicio_programa():
 	#Módulo dos vetores
 	moduloRv = funcoes.modulo_vetor(pontos_em_x_da_velocidade_robo[-1], pontos_em_y_da_velocidade_robo[-1])
 	moduloBv = funcoes.modulo_vetor(pontos_em_x_da_velocidade_bola[-1], pontos_em_y_da_velocidade_bola[-1])
+	moduloRac = funcoes.modulo_vetor(0, pontos_em_y_da_aceleracao_robo[-1])
+	moduloBac = funcoes.modulo_vetor(pontos_em_x_da_aceleracao_bola[-1], pontos_em_y_da_aceleracao_bola[-1])
 
 
 
@@ -208,8 +212,10 @@ def grafico9():
 	moduloRv, moduloBv)
 
 def grafico10():
-	funcoes.vetor_aceleracao(pontos_em_x_da_aceleracao_robo[0], pontos_em_y_da_aceleracao_robo[0],
-	pontos_em_x_da_aceleracao_robo[-1], pontos_em_y_da_aceleracao_robo[-1], pontos_em_x_da_aceleracao_bola[0],
-	pontos_em_y_da_aceleracao_bola[0], pontos_em_x_da_aceleracao_bola[-1], pontos_em_y_da_aceleracao_bola[-1])
+	funcoes.vetor_aceleracao(pontos_em_x_da_aceleracao_bola[0], 
+	pontos_em_y_da_aceleracao_robo[0],pontos_em_x_da_aceleracao_robo[-1], 0 , 
+	pontos_em_x_da_aceleracao_bola[0],
+	pontos_em_y_da_aceleracao_bola[0], pontos_em_x_da_aceleracao_bola[-1], 
+	pontos_em_y_da_aceleracao_bola[-1], moduloRac, moduloBac)
 
 
